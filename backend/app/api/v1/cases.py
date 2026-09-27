@@ -142,8 +142,8 @@ def update_case(case_id: str, payload: CaseUpdate, db: Session = Depends(get_db)
             resolution_summary=payload.resolution_summary,
         )
     except Exception as exc:
-        from app.core.errors import DrishtiError
-        if isinstance(exc, DrishtiError):
+        from app.core.errors import TrinetraError
+        if isinstance(exc, TrinetraError):
             raise HTTPException(status_code=exc.status_code, detail=exc.message)
         raise
     security.append_audit_event(
@@ -165,7 +165,7 @@ def add_case_note(case_id: str, payload: CaseNoteCreate, db: Session = Depends(g
     try:
         case_service.add_note(db, case, author_id=payload.author_id, body=payload.body)
     except Exception as exc:
-        from app.core.errors import DrishtiError, NotFoundError
+        from app.core.errors import TrinetraError, NotFoundError
         if isinstance(exc, NotFoundError):
             raise HTTPException(status_code=404, detail=exc.message)
         raise
@@ -189,8 +189,8 @@ def attach_case_evidence(case_id: str, payload: CaseEvidenceCreate,
             description=payload.description, evidence_type=payload.evidence_type,
         )
     except Exception as exc:
-        from app.core.errors import DrishtiError
-        if isinstance(exc, DrishtiError):
+        from app.core.errors import TrinetraError
+        if isinstance(exc, TrinetraError):
             raise HTTPException(status_code=exc.status_code, detail=exc.message)
         raise
     return Envelope(data=_case_out(db, case), meta=Meta(generated_at=_now()))
@@ -209,8 +209,8 @@ def record_feedback(case_id: str, payload: FeedbackCreate, db: Session = Depends
             summary=payload.summary,
         )
     except Exception as exc:
-        from app.core.errors import DrishtiError
-        if isinstance(exc, DrishtiError):
+        from app.core.errors import TrinetraError
+        if isinstance(exc, TrinetraError):
             raise HTTPException(status_code=exc.status_code, detail=exc.message)
         raise
     security.append_audit_event(

@@ -149,7 +149,7 @@ export default function CommandCenterMap({ points }: MapProps) {
                   weight: 1.5,
                 }}
               >
-                <Popup className="drishti-popup">
+                <Popup className="trinetra-popup">
                   <div className="max-w-[260px] text-[12px] leading-tight">
                     <div className="flex items-center justify-between gap-2 border-b border-rule pb-1.5">
                       <span className="font-mono text-[11px] font-semibold text-ink">

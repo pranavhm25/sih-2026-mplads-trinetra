@@ -16,7 +16,7 @@ from sqlalchemy.orm import Session
 from app.core.constants import DatasetStatus
 from app.models import Dataset, Project
 
-logger = logging.getLogger("drishti.ingestion")
+logger = logging.getLogger("trinetra.ingestion")
 
 # Source column aliases → canonical field names (TR-01).
 COLUMN_ALIASES: dict[str, str] = {

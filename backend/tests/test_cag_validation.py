@@ -80,7 +80,7 @@ class TestCatalogIntegrity:
 
     def test_every_pattern_has_detection_info(self):
         for p in CAG_PATTERNS:
-            assert p["drishti_detector"], p["pattern_id"]
+            assert p["trinetra_detector"], p["pattern_id"]
             assert p["validation_method"] in (
                 "SYNTHETIC_DATASET", "NOT_VALIDATABLE", "DETECTOR_UNIT",
             )
@@ -90,7 +90,7 @@ class TestCatalogIntegrity:
         for p in CAG_PATTERNS:
             if p["validation_method"] == "SYNTHETIC_DATASET":
                 assert p["fixture_work_ids"], p["pattern_id"]
-                assert p["drishti_signal_type"], p["pattern_id"]
+                assert p["trinetra_signal_type"], p["pattern_id"]
 
 
 # ---------------------------------------------------------------------------

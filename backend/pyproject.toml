@@ -1,5 +1,5 @@
 [project]
-name = "drishti-backend"
+name = "trinetra-backend"
 version = "0.1.0"
 description = "TRINETRA — MPLADS Risk Intelligence & Investigation Platform (backend)"
 requires-python = ">=3.11"

@@ -12,7 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Fresh file DB per test session (set BEFORE app modules are imported).
-_tmpdir = tempfile.mkdtemp(prefix="drishti-test-")
+_tmpdir = tempfile.mkdtemp(prefix="trinetra-test-")
 os.environ["DATABASE_URL"] = f"sqlite:///{_tmpdir}/test.db"
 os.environ["DEMO_AUTOSEED"] = "false"
 os.environ["REPORT_STORAGE_PATH"] = str(Path(_tmpdir) / "reports")

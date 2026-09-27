@@ -20,7 +20,7 @@ from app.core.constants import Severity, SignalType, SourceType
 from app.models import Project, ProjectMetrics, ProjectSignal
 from app.services.detection.signal_factory import add_evidence, make_signal
 
-logger = logging.getLogger("drishti.ml")
+logger = logging.getLogger("trinetra.ml")
 
 FEATURE_NAMES = [
     "cost_ratio_to_peer_median",   # sanctioned cost / peer median

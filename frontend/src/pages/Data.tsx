@@ -86,8 +86,8 @@ export default function DataScreen() {
 
   useEffect(() => {
     loadDatasets()
-    window.addEventListener('drishti:datasets-changed', loadDatasets)
-    return () => window.removeEventListener('drishti:datasets-changed', loadDatasets)
+    window.addEventListener('trinetra:datasets-changed', loadDatasets)
+    return () => window.removeEventListener('trinetra:datasets-changed', loadDatasets)
   }, [loadDatasets])
 
   const handleSeed = async () => {
@@ -430,7 +430,7 @@ function SyntheticFixturePanel() {
     try {
       const r = await api.ingestFixture(name)
       setDone(`${r.data.row_count} rows imported · quality ${r.data.quality_status}`)
-      window.dispatchEvent(new CustomEvent('drishti:datasets-changed'))
+      window.dispatchEvent(new CustomEvent('trinetra:datasets-changed'))
     } catch (e) {
       setFailure(e instanceof ApiError ? e.message : 'Fixture ingestion failed.')
     } finally {

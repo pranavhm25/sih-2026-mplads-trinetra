@@ -15,7 +15,7 @@ from app.core.constants import Severity, SignalType, SourceType
 from app.models import Project, ProjectMetrics, ProjectSignal
 from app.services.detection.signal_factory import add_evidence, make_signal
 
-logger = logging.getLogger("drishti.detection.agency")
+logger = logging.getLogger("trinetra.detection.agency")
 
 
 def _fmt_l(v: float) -> str:

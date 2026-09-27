@@ -37,7 +37,7 @@ def main() -> int:
 
     # Deterministic scratch database — the benchmark cleans up after itself,
     # and a throwaway file DB keeps the run self-contained.
-    scratch = tempfile.mkdtemp(prefix="drishti-synval-")
+    scratch = tempfile.mkdtemp(prefix="trinetra-synval-")
     os.environ.setdefault("DATABASE_URL", f"sqlite:///{scratch}/synval.db")
     os.environ["DEMO_AUTOSEED"] = "false"
     os.environ["REPORT_STORAGE_PATH"] = os.path.join(scratch, "reports")

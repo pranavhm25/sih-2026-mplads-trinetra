@@ -7,7 +7,7 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 
 
-class DrishtiError(Exception):
+class TrinetraError(Exception):
     """Domain error carrying a user-safe message and HTTP status."""
 
     def __init__(self, message: str, status_code: int = 400, code: str = "error"):
@@ -17,7 +17,7 @@ class DrishtiError(Exception):
         super().__init__(message)
 
 
-class NotFoundError(DrishtiError):
+class NotFoundError(TrinetraError):
     def __init__(self, entity: str, entity_id: str):
         super().__init__(
             message=f"{entity} '{entity_id}' was not found.",
@@ -26,17 +26,22 @@ class NotFoundError(DrishtiError):
         )
 
 
-class ValidationError400(DrishtiError):
+class ValidationError400(TrinetraError):
     def __init__(self, message: str):
         super().__init__(message=message, status_code=400, code="validation_error")
 
 
-class StateTransitionError(DrishtiError):
+class StateTransitionError(TrinetraError):
     def __init__(self, message: str):
         super().__init__(message=message, status_code=409, code="invalid_transition")
 
 
-def drishti_error_handler(_: Request, exc: DrishtiError) -> JSONResponse:
+# The domain exception was historically named DrishtiError (pre-TRINETRA
+# rename); renamed without a compatibility alias because the name never
+# appears in API payloads or persisted data.
+
+
+def trinetra_error_handler(_: Request, exc: TrinetraError) -> JSONResponse:
     return JSONResponse(
         status_code=exc.status_code,
         content={"error": {"code": exc.code, "message": exc.message}},
@@ -47,7 +52,7 @@ def unhandled_error_handler(_: Request, exc: Exception) -> JSONResponse:
     # Log server-side only; client gets a generic message.
     import logging
 
-    logging.getLogger("drishti").exception("Unhandled error: %s", exc)
+    logging.getLogger("trinetra").exception("Unhandled error: %s", exc)
     return JSONResponse(
         status_code=500,
         content={

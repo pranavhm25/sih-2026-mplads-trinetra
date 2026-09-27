@@ -33,7 +33,7 @@ class TestHealthEndpoint:
     def test_health_contract(self, client):
         r = client.get("/api/v1/health")
         assert r.status_code == 200
-        assert r.json() == {"status": "ok", "service": "drishti-api"}
+        assert r.json() == {"status": "ok", "service": "trinetra-api", "legacy_service": "drishti-api"}
 
     def test_root_endpoint(self, client):
         r = client.get("/")
@@ -110,7 +110,7 @@ class TestConfigHygiene:
         from pathlib import Path
         text = (Path(__file__).parent.parent.parent / ".env.example").read_text(encoding="utf-8")
         assert "change-me" in text or "SECRET_KEY=" in text
-        assert "sharma@drishti.demo" not in text  # no real-looking credentials
+        assert "sharma@trinetra.demo" not in text  # no real-looking credentials
 
     def test_settings_load_from_env(self):
         assert settings.app_env in ("development", "production", "test")

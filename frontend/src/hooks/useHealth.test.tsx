@@ -30,10 +30,10 @@ afterEach(() => {
 
 describe('SystemStatus (backend health screen)', () => {
   it('shows connected state when /api/v1/health returns ok', async () => {
-    mockFetchOnce({ status: 'ok', service: 'drishti-api' })
+    mockFetchOnce({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' })
     render(<SystemStatus />)
     await waitFor(() => expect(screen.getByText(/Backend connected/)).toBeInTheDocument())
-    expect(screen.getByText('drishti-api')).toBeInTheDocument()
+    expect(screen.getByText('trinetra-api')).toBeInTheDocument()
   })
 
   it('shows unreachable state and error when backend is down', async () => {
@@ -47,7 +47,7 @@ describe('SystemStatus (backend health screen)', () => {
   })
 
   it('handles non-ok health payload as down', async () => {
-    mockFetchOnce({ status: 'degraded', service: 'drishti-api' })
+    mockFetchOnce({ status: 'degraded', service: 'trinetra-api', legacy_service: 'drishti-api' })
     render(<SystemStatus />)
     await waitFor(() => expect(screen.getAllByText(/Backend unreachable/).length).toBeGreaterThan(0))
   })
@@ -57,7 +57,7 @@ describe('SystemStatus (backend health screen)', () => {
       Promise.resolve({
         ok: true,
         status: 200,
-        json: () => Promise.resolve({ status: 'ok', service: 'drishti-api' }),
+        json: () => Promise.resolve({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' }),
       }),
     )
     vi.stubGlobal('fetch', fetchMock)
@@ -71,7 +71,7 @@ describe('SystemStatus (backend health screen)', () => {
 
 describe('App smoke (foundation §15)', () => {
   it('renders the shell with primary navigation', async () => {
-    mockFetchOnce({ status: 'ok', service: 'drishti-api' })
+    mockFetchOnce({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' })
     const { default: App } = await import('../App')
     // jsdom lacks URLSearchParams routing issues here; RouterProvider handles '/'
     const { container } = render(<App />)
@@ -88,7 +88,7 @@ describe('GET retry layer (cold-start resilience)', () => {
       .mockResolvedValueOnce({
         ok: true,
         status: 200,
-        json: () => Promise.resolve({ status: 'ok', service: 'drishti-api' }),
+        json: () => Promise.resolve({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' }),
       })
     vi.stubGlobal('fetch', fetchMock)
     render(<SystemStatus />)
@@ -103,7 +103,7 @@ describe('GET retry layer (cold-start resilience)', () => {
       .mockResolvedValueOnce({
         ok: true,
         status: 200,
-        json: () => Promise.resolve({ status: 'ok', service: 'drishti-api' }),
+        json: () => Promise.resolve({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' }),
       })
     vi.stubGlobal('fetch', fetchMock)
     render(<SystemStatus />)

@@ -17,7 +17,7 @@ router = APIRouter()
 @router.get("/health")
 def health():
     """Lightweight liveness probe (no DB access by design)."""
-    return {"status": "ok", "service": "drishti-api"}
+    return {"status": "ok", "service": "trinetra-api", "legacy_service": "drishti-api"}
 
 
 @router.get("/health/ready")

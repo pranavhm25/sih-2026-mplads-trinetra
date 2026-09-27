@@ -35,8 +35,8 @@ import urllib.request
 
 DEFAULT_BACKEND = "https://mplads-drishti-codeholics-api.onrender.com"
 DEFAULT_FRONTEND = "http://localhost:5317"
-DEMO_EMAIL = "ministry@drishti.demo"
-DEMO_PASSWORD = "drishti-demo"  # public seeded demo account, not a secret
+DEMO_EMAIL = "ministry@trinetra.demo"
+DEMO_PASSWORD = "trinetra-demo"  # public seeded demo account, not a secret
 TIMEOUT_S = 10
 
 # The demo-critical read-only API: if this answers, the Command Center will load.

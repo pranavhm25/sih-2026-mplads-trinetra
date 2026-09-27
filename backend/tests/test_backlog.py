@@ -131,13 +131,13 @@ class TestSecurity:
 
     def test_login_requires_valid_credentials(self, client):
         r = client.post("/api/v1/auth/login",
-                        json={"email": "ministry@drishti.demo", "password": "nope"})
+                        json={"email": "ministry@trinetra.demo", "password": "nope"})
         assert r.status_code == 401
 
     def test_login_success_and_me(self, client):
         r = client.post("/api/v1/auth/login",
-                        json={"email": "ministry@drishti.demo",
-                              "password": "drishti-demo"})
+                        json={"email": "ministry@trinetra.demo",
+                              "password": "trinetra-demo"})
         assert r.status_code == 200
         token = r.json()["data"]["token"]
         me = client.get("/api/v1/auth/me",
@@ -150,7 +150,7 @@ class TestSecurity:
         from app.models import AuditEvent
 
         client.post("/api/v1/auth/login",
-                    json={"email": "mp@drishti.demo", "password": "drishti-demo"})
+                    json={"email": "mp@trinetra.demo", "password": "trinetra-demo"})
         r = client.get("/api/v1/audit/verify")
         assert r.status_code == 200
         assert r.json()["data"]["valid"] is True
@@ -174,7 +174,7 @@ class TestSecurity:
         from app.models import AuditEvent
 
         client.post("/api/v1/auth/login",
-                    json={"email": "ministry@drishti.demo", "password": "bad"})
+                    json={"email": "ministry@trinetra.demo", "password": "bad"})
         db = SessionLocal()
         last = db.query(AuditEvent).order_by(AuditEvent.seq.desc()).first()
         assert last.action == "AUDIT_LOGIN_FAILED"
@@ -189,11 +189,11 @@ class TestSecurity:
 class TestStakeholderViews:
     def _login(self, client, email):
         r = client.post("/api/v1/auth/login",
-                        json={"email": email, "password": "drishti-demo"})
+                        json={"email": email, "password": "trinetra-demo"})
         return r.json()["data"]["token"]
 
     def test_ministry_sees_national_scope(self, client):
-        tok = self._login(client, "ministry@drishti.demo")
+        tok = self._login(client, "ministry@trinetra.demo")
         r = client.get("/api/v1/stakeholder/summary",
                        headers={"Authorization": f"Bearer {tok}"})
         data = r.json()["data"]
@@ -201,7 +201,7 @@ class TestStakeholderViews:
         assert data["works"]["total"] > 0
 
     def test_mp_scope_is_constituency(self, client):
-        tok = self._login(client, "mp@drishti.demo")
+        tok = self._login(client, "mp@trinetra.demo")
         r = client.get("/api/v1/stakeholder/summary",
                        headers={"Authorization": f"Bearer {tok}"})
         data = r.json()["data"]
@@ -217,7 +217,7 @@ class TestStakeholderViews:
         assert r.json()["data"]["mp_headlines"] is None
 
     def _national(self, client):
-        tok = self._login(client, "ministry@drishti.demo")
+        tok = self._login(client, "ministry@trinetra.demo")
         r = client.get("/api/v1/stakeholder/summary",
                        headers={"Authorization": f"Bearer {tok}"})
         return r.json()["data"]["works"]["total"]
@@ -275,8 +275,8 @@ class TestAlertDigest:
 
     def test_digest_lists_new_signals_then_ack_clears(self, client):
         r = client.post("/api/v1/auth/login",
-                        json={"email": "district@drishti.demo",
-                              "password": "drishti-demo"})
+                        json={"email": "district@trinetra.demo",
+                              "password": "trinetra-demo"})
         tok = r.json()["data"]["token"]
         hdr = {"Authorization": f"Bearer {tok}"}
 
@@ -291,8 +291,8 @@ class TestAlertDigest:
 
     def test_district_floor_is_critical(self, client):
         r = client.post("/api/v1/auth/login",
-                        json={"email": "district@drishti.demo",
-                              "password": "drishti-demo"})
+                        json={"email": "district@trinetra.demo",
+                              "password": "trinetra-demo"})
         tok = r.json()["data"]["token"]
         data = client.get("/api/v1/alerts/digest",
                           headers={"Authorization": f"Bearer {tok}"}).json()["data"]

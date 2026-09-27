@@ -19,7 +19,7 @@ TRINETRA is an **investigation-first decision-support platform** for the Member 
 | API docs (Swagger) | https://drishti-backend-h2c8.onrender.com/docs |
 | Source | https://github.com/pranavhm25/sih-2026-mplads-trinetra |
 
-Demo sign-in: `ministry@drishti.demo` / `drishti-demo` (see [Demo accounts](#demo-accounts)). Hosted on free tiers — the backend sleeps when idle; see [Demo reliability](#demo-reliability).
+Demo sign-in: `ministry@trinetra.demo` / `trinetra-demo` (see [Demo accounts](#demo-accounts)). Hosted on free tiers — the backend sleeps when idle; see [Demo reliability](#demo-reliability).
 
 ---
 
@@ -437,11 +437,11 @@ The public demo deployment uses intentionally public demo accounts (also seeded 
 
 | Account | Role | Password |
 |---|---|---|
-| `ministry@drishti.demo` | Ministry reviewer | `drishti-demo` |
-| `snl@drishti.demo` | State nodal officer (Karnataka) | `drishti-demo` |
-| `district@drishti.demo` | District authority | `drishti-demo` |
-| `mp@drishti.demo` | Hon'ble MP (demo) | `drishti-demo` |
-| `admin@drishti.demo` | Platform admin | `drishti-demo` |
+| `ministry@trinetra.demo` | Ministry reviewer | `trinetra-demo` |
+| `snl@trinetra.demo` | State nodal officer (Karnataka) | `trinetra-demo` |
+| `district@trinetra.demo` | District authority | `trinetra-demo` |
+| `mp@trinetra.demo` | Hon'ble MP (demo) | `trinetra-demo` |
+| `admin@trinetra.demo` | Platform admin | `trinetra-demo` |
 
 No real credentials, API keys or secrets exist in this repository.
 

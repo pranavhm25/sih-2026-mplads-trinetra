@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.core import constants as C
 from app.core.database import get_db
-from app.core.errors import DrishtiError
+from app.core.errors import TrinetraError
 from app.models import Dataset, Project
 from app.services.bootstrap import latest_dataset
 
@@ -33,7 +33,7 @@ def get_current_dataset(db: Session) -> Dataset:
         return work_level
     ds = latest_dataset(db)
     if ds is None:
-        raise DrishtiError(
+        raise TrinetraError(
             "No dataset has been ingested yet. Import a dataset or enable demo seeding.",
             status_code=409,
             code="no_dataset",

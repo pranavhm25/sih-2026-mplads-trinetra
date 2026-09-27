@@ -32,7 +32,7 @@ from app.models import (
 from app.services.detection.runner import run_detection
 from app.services.ingestion.orchestrator import import_official_file
 
-logger = logging.getLogger("drishti.cag_validation")
+logger = logging.getLogger("trinetra.cag_validation")
 
 FIXTURE_NAME = "cag_patterns"
 FIXTURE_DISPLAY = (
@@ -109,7 +109,7 @@ def _evaluate_pattern(
 
     observed: list[dict] = []
     flagged = False
-    expected_signal = pattern.get("drishti_signal_type")
+    expected_signal = pattern.get("trinetra_signal_type")
 
     for wid in work_ids:
         p = projects_by_work_id.get(wid)
@@ -259,8 +259,8 @@ def run_cag_validation(db: Session, today: date | None = None) -> dict:
                 "documented_pattern": p["documented_pattern"],
                 "cag_quote": p["cag_quote"],
                 "required_data_fields": p["required_data_fields"],
-                "drishti_detector": p["drishti_detector"],
-                "drishti_signal_type": p["drishti_signal_type"],
+                "trinetra_detector": p["trinetra_detector"],
+                "trinetra_signal_type": p["trinetra_signal_type"],
                 "validation_method": p["validation_method"],
                 "expected_trigger": p["expected_trigger"],
                 "limitations": p["limitations"],

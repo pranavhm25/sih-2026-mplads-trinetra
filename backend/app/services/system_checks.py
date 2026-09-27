@@ -11,7 +11,7 @@ import logging
 
 from sqlalchemy import text
 
-logger = logging.getLogger("drishti.health")
+logger = logging.getLogger("trinetra.health")
 
 
 def readiness_payload() -> tuple[dict, bool]:

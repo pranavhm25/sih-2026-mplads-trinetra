@@ -11,14 +11,14 @@ import io
 import logging
 from dataclasses import dataclass, field
 
-from app.core.errors import DrishtiError
+from app.core.errors import TrinetraError
 
-logger = logging.getLogger("drishti.ingestion")
+logger = logging.getLogger("trinetra.ingestion")
 
 SUPPORTED_EXTENSIONS = (".csv", ".xlsx", ".xls")
 
 
-class FileParseError(DrishtiError):
+class FileParseError(TrinetraError):
     """Raised when an uploaded file cannot be parsed (Prompt-3 §46)."""
 
     def __init__(self, message: str, code: str = "INVALID_FILE"):

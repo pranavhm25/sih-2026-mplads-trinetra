@@ -277,7 +277,7 @@ items summarized below):
 - **Security pack** (`app/core/security.py`, `app/services/auth.py`,
   `app/api/v1/auth.py`): PBKDF2 password hashing, HMAC-signed session tokens,
   login/logout/me endpoints, demo stakeholder accounts
-  (ministry/snl/district/mp @drishti.demo, password drishti-demo).
+  (ministry/snl/district/mp @trinetra.demo, password trinetra-demo).
 - **Tamper-evident audit chain** (`audit_event` table): sha256 hash-linked
   events for logins and every case mutation + report generation;
   `GET /api/v1/audit/verify` pinpoints tampering (seq, reason).
@@ -456,8 +456,8 @@ minutes of a demo must not look like a crash.
   window/exhaustion/4xx-no-retry/POST-no-retry, readiness recovery,
   CommandCenter waking→recover cycle). Full suite: 209 passed + 1 skipped;
   tsc + vite build green.
-- Demo login credentials are public seeded accounts (ministry@drishti.demo
-  / drishti-demo) — documented, not secrets.
+- Demo login credentials are public seeded accounts (ministry@trinetra.demo
+  / trinetra-demo) — documented, not secrets.
 ## Not-Substantiated Case Outcome (2026-09-26)
 
 PRD R12 extension implementing "AI FLAG ≠ FRAUD": an AI-generated risk flag

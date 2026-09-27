@@ -28,7 +28,7 @@ from app.core.constants import CaseStatus, ResolutionReason, ResolutionType
 from app.models import InvestigationCase, Officer, Project
 from app.services.cases.cases import create_case, update_case
 
-logger = logging.getLogger("drishti.bootstrap")
+logger = logging.getLogger("trinetra.bootstrap")
 
 # The flagship duplicate pair from docs/MEMORY.md / PRD narrative.
 _DEMO_WORK_ID = "MPL-10281"

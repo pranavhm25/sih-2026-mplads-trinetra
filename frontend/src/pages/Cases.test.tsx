@@ -37,7 +37,7 @@ const baseCase: Case = {
     id: 'o-1',
     name: 'Officer A. Sharma',
     role: 'INVESTIGATOR',
-    email: 'sharma@drishti.demo',
+    email: 'sharma@trinetra.demo',
     district: null,
     is_active: true,
   },
@@ -94,7 +94,7 @@ describe('CaseDetail outcome UI (AI FLAG ≠ FRAUD)', () => {
         return Response.json({ data: baseCase, meta: {} })
       }
       if (url.includes('/officers')) {
-        return Response.json({ data: [{ id: 'o-1', name: 'Officer A. Sharma', role: 'INVESTIGATOR', email: 'sharma@drishti.demo', district: null, is_active: true }], meta: {} })
+        return Response.json({ data: [{ id: 'o-1', name: 'Officer A. Sharma', role: 'INVESTIGATOR', email: 'sharma@trinetra.demo', district: null, is_active: true }], meta: {} })
       }
       return Response.json({ data: [], meta: {} })
     })

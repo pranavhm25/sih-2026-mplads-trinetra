@@ -3,7 +3,9 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: drishti-backend
+# NOTE: the database FILENAME stays drishti.db for compatibility with
+# existing local/demo databases. Renaming it would silently orphan data.
+    container_name: trinetra-backend
     restart: unless-stopped
     ports:
       - "${BACKEND_PORT:-8317}:8000"
@@ -14,8 +16,8 @@ services:
       - REPORT_STORAGE_PATH=/app/reports
       - CORS_ORIGINS=http://localhost:5317,http://localhost:5199,http://127.0.0.1:5317,http://127.0.0.1:5199
     volumes:
-      - drishti-data:/app/data
-      - drishti-reports:/app/reports
+      - trinetra-data:/app/data
+      - trinetra-reports:/app/reports
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
       interval: 5s
@@ -23,13 +25,13 @@ services:
       retries: 5
       start_period: 5s
     networks:
-      - drishti-network
+      - trinetra-network
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: drishti-frontend
+    container_name: trinetra-frontend
     restart: unless-stopped
     ports:
       - "${FRONTEND_PORT:-5317}:80"
@@ -37,12 +39,17 @@ services:
       backend:
         condition: service_healthy
     networks:
-      - drishti-network
+      - trinetra-network
 
+# Volume KEYS are renamed to trinetra-*, but the underlying Docker volume
+# names are pinned to the historical ones so existing local developer data
+# (demo database, generated reports) survives the rename untouched.
 volumes:
-  drishti-data:
-  drishti-reports:
+  trinetra-data:
+    name: drishti-data
+  trinetra-reports:
+    name: drishti-reports
 
 networks:
-  drishti-network:
+  trinetra-network:
     driver: bridge

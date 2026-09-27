@@ -18,19 +18,19 @@ from app.core.constants import StakeholderRole
 from app.core.database import get_db
 from app.models import AuditEvent, Officer
 
-logger = logging.getLogger("drishti.auth")
+logger = logging.getLogger("trinetra.auth")
 
-DEMO_PASSWORD = "drishti-demo"
+DEMO_PASSWORD = "trinetra-demo"
 
 
 def seed_demo_accounts(db: Session) -> None:
     """Create the four stakeholder demo accounts + admin (idempotent)."""
     accounts = [
-        ("ministry@drishti.demo", "Ministry Reviewer", StakeholderRole.MINISTRY, None, None),
-        ("snl@drishti.demo", "State Nodal Officer", StakeholderRole.STATE_NODAL, None, "Karnataka"),
-        ("district@drishti.demo", "District Authority", StakeholderRole.DISTRICT_AUTHORITY, None, None),
-        ("mp@drishti.demo", "Hon'ble MP (Demo)", StakeholderRole.MP, "Bangalore North", "Karnataka"),
-        ("admin@drishti.demo", "Platform Admin", StakeholderRole.ADMIN, None, None),
+        ("ministry@trinetra.demo", "Ministry Reviewer", StakeholderRole.MINISTRY, None, None),
+        ("snl@trinetra.demo", "State Nodal Officer", StakeholderRole.STATE_NODAL, None, "Karnataka"),
+        ("district@trinetra.demo", "District Authority", StakeholderRole.DISTRICT_AUTHORITY, None, None),
+        ("mp@trinetra.demo", "Hon'ble MP (Demo)", StakeholderRole.MP, "Bangalore North", "Karnataka"),
+        ("admin@trinetra.demo", "Platform Admin", StakeholderRole.ADMIN, None, None),
     ]
     for email, name, role, constituency, state in accounts:
         existing = db.query(Officer).filter(Officer.email == email).one_or_none()

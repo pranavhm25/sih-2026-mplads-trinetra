@@ -10,7 +10,7 @@ import app.models  # noqa: F401
 
 __all__ = ["Base", "SessionLocal", "engine", "get_db", "create_all"]
 
-logger = logging.getLogger("drishti.db")
+logger = logging.getLogger("trinetra.db")
 
 
 def _ensure_columns() -> None:

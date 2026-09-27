@@ -115,8 +115,8 @@ CAG_PATTERNS: list[dict] = [
         ),
         "irregularity_type": "CATEGORICAL_COMPLIANCE",
         "required_data_fields": ["work description", "implementing agency"],
-        "drishti_detector": "COMPLIANCE rule pack (app/rules/compliance.py)",
-        "drishti_signal_type": "COMPLIANCE",
+        "trinetra_detector": "COMPLIANCE rule pack (app/rules/compliance.py)",
+        "trinetra_signal_type": "COMPLIANCE",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-001-A"],
         "expected_trigger": "COMPLIANCE signal (prohibited-category keyword match)",
@@ -150,8 +150,8 @@ CAG_PATTERNS: list[dict] = [
         "required_data_fields": [
             "MP recommendation record", "sanction trail", "indicated cost",
         ],
-        "drishti_detector": "None today — requires recommendation/sanction trail",
-        "drishti_signal_type": None,
+        "trinetra_detector": "None today — requires recommendation/sanction trail",
+        "trinetra_signal_type": None,
         "validation_method": "NOT_VALIDATABLE",
         "fixture_work_ids": [],
         "expected_trigger": None,
@@ -180,8 +180,8 @@ CAG_PATTERNS: list[dict] = [
         "required_data_fields": [
             "sanction date", "expected duration", "physical progress", "status",
         ],
-        "drishti_detector": "DELAY rule + FIN_PHYS_GAP rule + fusion priority",
-        "drishti_signal_type": "DELAY",
+        "trinetra_detector": "DELAY rule + FIN_PHYS_GAP rule + fusion priority",
+        "trinetra_signal_type": "DELAY",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-003-A"],
         "expected_trigger": "DELAY signal (elapsed ≫ expected duration, low physical progress)",
@@ -210,8 +210,8 @@ CAG_PATTERNS: list[dict] = [
         ),
         "irregularity_type": "REPORTING_INTEGRITY",
         "required_data_fields": ["financial progress", "physical progress"],
-        "drishti_detector": "FIN_PHYS_GAP rule (financial ≫ physical gap)",
-        "drishti_signal_type": "FIN_PHYS_GAP",
+        "trinetra_detector": "FIN_PHYS_GAP rule (financial ≫ physical gap)",
+        "trinetra_signal_type": "FIN_PHYS_GAP",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-004-A"],
         "expected_trigger": "FIN_PHYS_GAP signal (gap ≥ 25 pp)",
@@ -240,10 +240,10 @@ CAG_PATTERNS: list[dict] = [
         ),
         "irregularity_type": "FUNDS_UTILIZATION",
         "required_data_fields": ["funds available", "expenditure per district/authority"],
-        "drishti_detector": "Partial — works with zero/low spend vs cost surface via "
+        "trinetra_detector": "Partial — works with zero/low spend vs cost surface via "
                             "metrics and ML features, but TRINETRA has no "
                             "authority-level fund ledger",
-        "drishti_signal_type": None,
+        "trinetra_signal_type": None,
         "validation_method": "NOT_VALIDATABLE",
         "fixture_work_ids": [],
         "expected_trigger": None,
@@ -278,9 +278,9 @@ CAG_PATTERNS: list[dict] = [
         "required_data_fields": [
             "sanctioned cost", "expenditure", "physical progress", "status",
         ],
-        "drishti_detector": "Isolation Forest feature profile (high expenditure ratio "
+        "trinetra_detector": "Isolation Forest feature profile (high expenditure ratio "
                             "with low physical progress) + fusion priority",
-        "drishti_signal_type": "ML_ANOMALY",
+        "trinetra_signal_type": "ML_ANOMALY",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-006-A"],
         "expected_trigger": "ML unusualness on the spend-vs-progress profile "
@@ -310,10 +310,10 @@ CAG_PATTERNS: list[dict] = [
         "required_data_fields": [
             "payment records", "invoices", "execution evidence",
         ],
-        "drishti_detector": "Partial — duplicate-candidate + ML signals target "
+        "trinetra_detector": "Partial — duplicate-candidate + ML signals target "
                             "statistical signatures; document-level verification "
                             "is out of MVP scope",
-        "drishti_signal_type": "DUPLICATE",
+        "trinetra_signal_type": "DUPLICATE",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-007-A", "CAGV-007-B"],
         "expected_trigger": "DUPLICATE candidate pair (near-identical works) as one "
@@ -346,9 +346,9 @@ CAG_PATTERNS: list[dict] = [
         ),
         "irregularity_type": "CATEGORICAL_COMPLIANCE",
         "required_data_fields": ["implementing agency", "agency registration/approval status"],
-        "drishti_detector": "COMPLIANCE rule pack — ineligible-payee indicator "
+        "trinetra_detector": "COMPLIANCE rule pack — ineligible-payee indicator "
                             "(trust/society agencies require approval)",
-        "drishti_signal_type": "COMPLIANCE",
+        "trinetra_signal_type": "COMPLIANCE",
         "validation_method": "SYNTHETIC_DATASET",
         "fixture_work_ids": ["CAGV-008-A"],
         "expected_trigger": "COMPLIANCE signal (UNAPPROVED_TRUST payee indicator)",
@@ -375,8 +375,8 @@ CAG_PATTERNS: list[dict] = [
         ),
         "irregularity_type": "RECORDS_GOVERNANCE",
         "required_data_fields": ["asset register", "works register"],
-        "drishti_detector": "None — institutional records gap",
-        "drishti_signal_type": None,
+        "trinetra_detector": "None — institutional records gap",
+        "trinetra_signal_type": None,
         "validation_method": "NOT_VALIDATABLE",
         "fixture_work_ids": [],
         "expected_trigger": None,

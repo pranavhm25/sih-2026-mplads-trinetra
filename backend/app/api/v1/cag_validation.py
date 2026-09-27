@@ -28,7 +28,7 @@ from app.models import Dataset
 from app.schemas.schemas import Envelope, Meta
 from app.services.validation.cag_validation import run_cag_validation
 
-logger = logging.getLogger("drishti.cag_validation_api")
+logger = logging.getLogger("trinetra.cag_validation_api")
 
 router = APIRouter()
 
@@ -58,9 +58,9 @@ def get_validation_report(db: Session = Depends(get_db)):
         report = get_cag_report(db)
     except Exception as exc:  # noqa: BLE001 — surfaced through the error envelope
         logger.exception("CAG validation run failed")
-        from app.core.errors import DrishtiError
+        from app.core.errors import TrinetraError
 
-        raise DrishtiError(
+        raise TrinetraError(
             message="CAG validation run failed — see server logs.",
             status_code=500,
             code="CAG_VALIDATION_FAILED",
@@ -96,9 +96,9 @@ def get_synthetic_validation(seed: int = 26102):
             _synthetic_cache["seed"] = seed
         except Exception as exc:  # noqa: BLE001 — surfaced via error envelope
             logger.exception("synthetic validation benchmark failed")
-            from app.core.errors import DrishtiError
+            from app.core.errors import TrinetraError
 
-            raise DrishtiError(
+            raise TrinetraError(
                 message="Synthetic validation benchmark failed — see server logs.",
                 status_code=500,
                 code="SYNTHETIC_VALIDATION_FAILED",

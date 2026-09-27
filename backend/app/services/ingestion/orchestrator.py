@@ -27,7 +27,7 @@ from typing import Any
 from sqlalchemy.orm import Session
 
 from app.core.constants import DatasetSourceType, DatasetType
-from app.core.errors import DrishtiError
+from app.core.errors import TrinetraError
 from app.models import (
     Dataset,
     MPAllocationRecord,
@@ -52,13 +52,13 @@ from app.services.ingestion.validation import (
     validate_work_level_rows,
 )
 
-logger = logging.getLogger("drishti.ingestion")
+logger = logging.getLogger("trinetra.ingestion")
 
 SOURCE_NAME_OFFICIAL = "MPLADS e-SAKSHI"
 SOURCE_NAME_SYNTHETIC = "TRINETRA Synthetic Fixture"
 
 
-class ImportRejected(DrishtiError):
+class ImportRejected(TrinetraError):
     """Structured import rejection (Prompt-3 §46)."""
 
     def __init__(self, message: str, code: str, details: dict | None = None):
@@ -348,7 +348,7 @@ def import_official_file(
     # 1. Parse.
     try:
         parsed = parse_file(raw, file_name)
-    except DrishtiError:
+    except TrinetraError:
         logger.info("dataset_import_failed file=%s stage=parse", file_name)
         raise
 

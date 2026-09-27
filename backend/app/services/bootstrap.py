@@ -15,12 +15,12 @@ from app.data.demo_data import REFERENCE_DATE, build_demo_rows
 from app.models import Dataset, DetectionRun, InvestigationCase, Officer, Project, RelatedProject
 from app.services.detection.runner import run_detection
 
-logger = logging.getLogger("drishti.bootstrap")
+logger = logging.getLogger("trinetra.bootstrap")
 
 DEMO_OFFICERS = [
-    {"name": "Officer A. Sharma", "email": "sharma@drishti.demo", "role": "INVESTIGATOR"},
-    {"name": "Supervisor V. Rao", "email": "rao@drishti.demo", "role": "SUPERVISOR"},
-    {"name": "Admin K. Iyer", "email": "admin@drishti.demo", "role": "ADMIN"},
+    {"name": "Officer A. Sharma", "email": "sharma@trinetra.demo", "role": "INVESTIGATOR"},
+    {"name": "Supervisor V. Rao", "email": "rao@trinetra.demo", "role": "SUPERVISOR"},
+    {"name": "Admin K. Iyer", "email": "admin@trinetra.demo", "role": "ADMIN"},
 ]
 
 

@@ -20,7 +20,7 @@ and command below is real and verified in this repository.
 
 - [ ] Backend pre-warmed and reporting **READY** (§2)
 - [ ] `check` mode passes all 5 checks (§10)
-- [ ] Logged in on screen: `ministry@drishti.demo` / `drishti-demo` (§4)
+- [ ] Logged in on screen: `ministry@trinetra.demo` / `trinetra-demo` (§4)
 - [ ] Command Center loads with the synthetic demo dataset banner visible
 - [ ] Flagship demo project open: **MPL-10281** ↔ **MPL-10412** duplicate pair
       (Project Intelligence shows Distance 7 m, Context HIGH)
@@ -59,7 +59,7 @@ The login screen offers the seeded stakeholder demo accounts (enabled via
 ```bash
 curl -s -X POST http://localhost:8317/api/v1/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"ministry@drishti.demo","password":"drishti-demo"}'
+  -d '{"email":"ministry@trinetra.demo","password":"trinetra-demo"}'
 ```
 
 Expect 200 with a `token`. These are public demo credentials (documented in
@@ -163,7 +163,7 @@ curl -s https://mplads-drishti-codeholics-api.onrender.com/api/v1/dashboard/summ
 # 5. Demo login
 curl -s -X POST https://mplads-drishti-codeholics-api.onrender.com/api/v1/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"ministry@drishti.demo","password":"drishti-demo"}'
+  -d '{"email":"ministry@trinetra.demo","password":"trinetra-demo"}'
 
 # Local stack
 docker compose up                 # frontend :5317, backend :8317

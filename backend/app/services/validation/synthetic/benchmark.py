@@ -42,7 +42,7 @@ from app.services.validation.synthetic.metrics import (
     evaluate,
 )
 
-logger = logging.getLogger("drishti.synthetic_validation")
+logger = logging.getLogger("trinetra.synthetic_validation")
 
 RESULTS_VERSION = "synthetic-validation-1"
 DEFAULT_SEED = 26102

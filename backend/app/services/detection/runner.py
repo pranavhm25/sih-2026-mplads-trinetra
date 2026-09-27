@@ -26,7 +26,7 @@ from app.services.detection import (
 )
 from app.services.quality.quality import run_quality_checks
 
-logger = logging.getLogger("drishti.detection")
+logger = logging.getLogger("trinetra.detection")
 
 
 def run_detection(db: Session, dataset: Dataset, today: date | None = None) -> DetectionRun:

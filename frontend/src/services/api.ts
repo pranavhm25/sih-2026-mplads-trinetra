@@ -33,15 +33,23 @@ export function resolveApiUrl(path: string): string {
   return `${API_HOST}${normalized}`
 }
 
-const TOKEN_KEY = 'drishti.token'
+const TOKEN_KEY = 'trinetra.token'
+// Users who logged in before the TRINETRA rename carry their session under
+// the legacy key; read it as a fallback so no one is logged out.
+const LEGACY_TOKEN_KEY = 'drishti.token'
 
 export function getStoredToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY)
+  return localStorage.getItem(TOKEN_KEY) ?? localStorage.getItem(LEGACY_TOKEN_KEY)
 }
 
 export function storeToken(token: string | null): void {
-  if (token) localStorage.setItem(TOKEN_KEY, token)
-  else localStorage.removeItem(TOKEN_KEY)
+  if (token) {
+    localStorage.setItem(TOKEN_KEY, token)
+    localStorage.removeItem(LEGACY_TOKEN_KEY)
+  } else {
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(LEGACY_TOKEN_KEY)
+  }
 }
 
 class ApiError extends Error {

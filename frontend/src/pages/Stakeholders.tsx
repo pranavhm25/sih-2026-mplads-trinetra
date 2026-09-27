@@ -20,10 +20,10 @@ const ROLE_LABELS: Record<string, string> = {
 }
 
 const DEMO_ACCOUNTS = [
-  { email: 'ministry@drishti.demo', label: 'Ministry' },
-  { email: 'snl@drishti.demo', label: 'State Nodal' },
-  { email: 'district@drishti.demo', label: 'District' },
-  { email: 'mp@drishti.demo', label: 'MP' },
+  { email: 'ministry@trinetra.demo', label: 'Ministry' },
+  { email: 'snl@trinetra.demo', label: 'State Nodal' },
+  { email: 'district@trinetra.demo', label: 'District' },
+  { email: 'mp@trinetra.demo', label: 'MP' },
 ]
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -48,8 +48,8 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 
 export default function Stakeholders() {
   const { officer, login, logout } = useAuth()
-  const [email, setEmail] = useState('ministry@drishti.demo')
-  const [password, setPassword] = useState('drishti-demo')
+  const [email, setEmail] = useState('ministry@trinetra.demo')
+  const [password, setPassword] = useState('trinetra-demo')
   const [loginError, setLoginError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
 
@@ -180,7 +180,7 @@ export default function Stakeholders() {
             </button>
             {loginError && <p className="text-[12px] text-vermilion">{loginError}</p>}
             <p className="w-full text-meta text-ink-faint">
-              Demo accounts use the shared password <code>drishti-demo</code>. Production
+              Demo accounts use the shared password <code>trinetra-demo</code>. Production
               deployments disable them (<code>DEMO_ACCOUNTS_ENABLED=false</code>).
             </p>
           </form>
@@ -402,5 +402,5 @@ export default function Stakeholders() {
 }
 
 function getStoredToken(): string | null {
-  return localStorage.getItem('drishti.token')
+  return localStorage.getItem('trinetra.token')
 }

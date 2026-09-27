@@ -27,7 +27,7 @@ from app.models import (
 )
 from app.services.cases.cases import next_case_report_number
 
-logger = logging.getLogger("drishti.reports")
+logger = logging.getLogger("trinetra.reports")
 
 
 def _rs(t: str) -> str:

@@ -12,10 +12,10 @@ from fastapi.responses import JSONResponse
 from app.api.router import api_router
 from app.core.config import settings
 from app.core.logging import setup_logging
-from app.core.errors import DrishtiError, drishti_error_handler, unhandled_error_handler
+from app.core.errors import TrinetraError, trinetra_error_handler, unhandled_error_handler
 
 setup_logging()
-logger = logging.getLogger("drishti")
+logger = logging.getLogger("trinetra")
 
 
 def _safe_db_label() -> str:
@@ -77,7 +77,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.add_exception_handler(DrishtiError, drishti_error_handler)
+app.add_exception_handler(TrinetraError, trinetra_error_handler)
 app.add_exception_handler(Exception, unhandled_error_handler)
 
 
@@ -116,5 +116,8 @@ def root():
 
 @app.get("/api/health")
 def health_legacy():
-    """Legacy alias kept for existing clients."""
-    return {"status": "ok", "app": "drishti", "env": settings.app_env}
+    """Legacy alias kept for existing clients.
+
+    The `app` value intentionally stays "drishti": pre-rename clients assert
+    on it. New identifiers elsewhere use the trinetra namespace.
+    """
