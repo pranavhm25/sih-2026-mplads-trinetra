@@ -14,9 +14,9 @@ TRINETRA is an **investigation-first decision-support platform** for the Member 
 
 | | |
 |---|---|
-| Application | https://drishti-mplads-codeholics.vercel.app |
-| API health | https://drishti-backend-h2c8.onrender.com/api/v1/health |
-| API docs (Swagger) | https://drishti-backend-h2c8.onrender.com/docs |
+| Application | https://trinetra-mplads-codeholics.vercel.app |
+| API health | https://mplads-drishti-codeholics-api-wqbj.onrender.com/api/v1/health |
+| API docs (Swagger) | https://mplads-drishti-codeholics-api-wqbj.onrender.com/docs |
 | Source | https://github.com/pranavhm25/sih-2026-mplads-trinetra |
 
 Demo sign-in: `ministry@trinetra.demo` / `trinetra-demo` (see [Demo accounts](#demo-accounts)). Hosted on free tiers — the backend sleeps when idle; see [Demo reliability](#demo-reliability).

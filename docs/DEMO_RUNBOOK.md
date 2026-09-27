@@ -154,14 +154,14 @@ python scripts/prewarm-demo.py
 python scripts/prewarm-demo.py check
 
 # 3. Health probes by hand
-curl -s https://mplads-drishti-codeholics-api.onrender.com/api/v1/health
-curl -s https://mplads-drishti-codeholics-api.onrender.com/api/v1/health/ready
+curl -s https://mplads-drishti-codeholics-api-wqbj.onrender.com/api/v1/health
+curl -s https://mplads-drishti-codeholics-api-wqbj.onrender.com/api/v1/health/ready
 
 # 4. Critical API
-curl -s https://mplads-drishti-codeholics-api.onrender.com/api/v1/dashboard/summary | head -c 200
+curl -s https://mplads-drishti-codeholics-api-wqbj.onrender.com/api/v1/dashboard/summary | head -c 200
 
 # 5. Demo login
-curl -s -X POST https://mplads-drishti-codeholics-api.onrender.com/api/v1/auth/login \
+curl -s -X POST https://mplads-drishti-codeholics-api-wqbj.onrender.com/api/v1/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"ministry@trinetra.demo","password":"trinetra-demo"}'
 

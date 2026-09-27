@@ -33,7 +33,7 @@ import time
 import urllib.error
 import urllib.request
 
-DEFAULT_BACKEND = "https://mplads-drishti-codeholics-api.onrender.com"
+DEFAULT_BACKEND = "https://mplads-drishti-codeholics-api-wqbj.onrender.com"
 DEFAULT_FRONTEND = "http://localhost:5317"
 DEMO_EMAIL = "ministry@trinetra.demo"
 DEMO_PASSWORD = "trinetra-demo"  # public seeded demo account, not a secret

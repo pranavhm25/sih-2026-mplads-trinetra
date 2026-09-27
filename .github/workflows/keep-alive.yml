@@ -1,16 +1,10 @@
-# Optional: Keep the Render free backend awake 24/7 (no cold starts).
+# Keep the Render free backend awake 24/7 (no cold starts).
 #
-# This workflow is DISABLED by default — nothing runs until you add a secret.
+# ENABLED BY DEFAULT: pings the backend every 10 minutes from the next push.
+# The backend URL is hardcoded below — no repository secret is needed.
 #
-# ── How to enable ─────────────────────────────────────────────────────────
-# 1. GitHub repo → Settings → Secrets and variables → Actions
-# 2. New repository secret:
-#       Name:  RENDER_BACKEND_URL
-#       Value: https://drishti-backend-h2c8.onrender.com   (no trailing slash)
-# 3. Done — from the next push the workflow runs every 10 minutes.
-#
-# To turn it OFF later: delete the secret (runs then fail harmlessly), or
-# disable the workflow: Actions tab → Keep-alive → ⋯ → Disable workflow.
+# To turn it OFF later: disable the workflow via
+# Actions tab → Keep-alive (Render backend) → ⋯ → Disable workflow.
 #
 # ── Cost trade-off ────────────────────────────────────────────────────────
 # 24/7 keep-alive consumes ~744 of Render's 750 monthly FREE instance-hours.
@@ -31,18 +25,15 @@ concurrency:
   group: keep-alive
   cancel-in-progress: false
 
+env:
+  BACKEND_URL: https://mplads-drishti-codeholics-api-wqbj.onrender.com
+
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
       - name: Ping backend health endpoint
-        env:
-          BACKEND_URL: ${{ secrets.RENDER_BACKEND_URL }}
         run: |
-          if [ -z "$BACKEND_URL" ]; then
-            echo "RENDER_BACKEND_URL secret not set — nothing to do."
-            exit 0
-          fi
           echo "Pinging $BACKEND_URL/api/v1/health ..."
           code=$(curl -s -o /dev/null -w "%{http_code}" \
             --max-time 90 \
