@@ -20,7 +20,7 @@ export default function Shell() {
       {/* Mobile top bar (hidden on desktop) */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b border-ink/70 bg-paper px-4 py-3 lg:hidden">
         <div>
-          <p className="font-serif text-[19px] font-semibold leading-none">Drishti</p>
+          <p className="font-serif text-[19px] font-semibold leading-none">TRINETRA</p>
           <p className="mt-1 text-meta text-ink-faint">MPLADS Risk Intelligence</p>
         </div>
         <button
@@ -49,7 +49,7 @@ export default function Shell() {
         } w-full shrink-0 border-b border-ink/70 bg-paper lg:sticky lg:top-0 lg:block lg:h-screen lg:w-52 lg:border-b-0 lg:border-r`}
       >
         <div className="hidden border-b border-ink/70 px-4 py-4 lg:block">
-          <p className="font-serif text-[19px] font-semibold leading-none">Drishti</p>
+          <p className="font-serif text-[19px] font-semibold leading-none">TRINETRA</p>
           <p className="mt-1 text-meta text-ink-faint">MPLADS Risk Intelligence</p>
         </div>
         <ul className="space-y-px px-2 py-2 lg:mt-3 lg:py-0">

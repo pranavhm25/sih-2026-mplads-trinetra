@@ -89,7 +89,7 @@ export function BackendStartingState({ detail }: { detail?: string | null }) {
   return (
     <div role="status" aria-live="polite" className="border border-amber/40 bg-amber-soft p-4">
       <p className="font-plex text-[13px] font-semibold text-amber-signal">
-        Drishti backend is starting. Retrying connection…
+        TRINETRA backend is starting. Retrying connection…
       </p>
       {detail && <p className="mt-1 text-[12.5px] text-ink-soft">{detail}</p>}
       <p className="mt-2 text-meta text-ink-faint">
@@ -114,7 +114,7 @@ export function BackendDownState({
   return (
     <div role="alert" className="border border-vermilion/40 bg-verms-soft p-4">
       <p className="font-plex text-[13px] font-semibold text-vermilion">
-        Drishti backend is unreachable
+        TRINETRA backend is unreachable
       </p>
       {detail && <p className="mt-1 text-[12.5px] text-ink-soft">{detail}</p>}
       <p className="mt-2 text-meta text-ink-faint">

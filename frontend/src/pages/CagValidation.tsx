@@ -5,10 +5,10 @@ import type { CagValidationResult } from '../types/types'
 /**
  * Evidence & Validation — CAG-grounded pattern validation.
  *
- * Shows whether Drishti's existing detectors can identify the irregularity
+ * Shows whether TRINETRA's existing detectors can identify the irregularity
  * PATTERNS documented in real CAG audits of MPLADS, using a controlled
  * synthetic reproduction. This is capability validation — it never claims
- * that Drishti detected a real CAG case.
+ * that TRINETRA detected a real CAG case.
  */
 
 const RESULT_STYLE: Record<CagValidationResult, { label: string; cls: string }> = {
@@ -31,7 +31,7 @@ export default function CagValidation() {
           Evidence &amp; Validation
         </h1>
         <p className="mt-0.5 text-meta text-ink-faint">
-          CAG-grounded pattern validation — can Drishti&apos;s detectors identify the
+          CAG-grounded pattern validation — can TRINETRA&apos;s detectors identify the
           irregularity patterns documented in CAG audits of MPLADS?
         </p>
       </header>
@@ -168,7 +168,7 @@ export default function CagValidation() {
                 signal for the synthetic reproduction of the documented pattern.
               </li>
               <li>
-                <strong>Not validatable</strong> — the pattern requires data Drishti
+                <strong>Not validatable</strong> — the pattern requires data TRINETRA
                 does not have (recommendation trails, authority fund ledgers,
                 records-keeping registers). Reported honestly; not treated as a
                 failure of the detector.

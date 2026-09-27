@@ -226,7 +226,7 @@ describe('waking-backend UX (useBackendReady / BackendGate)', () => {
     )
     // Waking state — explicitly NOT an application error.
     await waitFor(() =>
-      expect(screen.getByText(/Drishti backend is starting/)).toBeInTheDocument(),
+      expect(screen.getByText(/TRINETRA backend is starting/)).toBeInTheDocument(),
     )
     expect(screen.queryByText('Something went wrong')).not.toBeInTheDocument()
 

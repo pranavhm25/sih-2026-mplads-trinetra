@@ -137,7 +137,7 @@ export function isBackendUnavailableFailure(e: unknown): boolean {
  */
 export function describeLoadFailure(e: unknown, fallback: string): string {
   if (isBackendUnavailableFailure(e)) {
-    return 'The Drishti backend is not responding. If this is a cold start it should be up in under a minute — retry, or run the pre-warm script (docs/DEMO_RUNBOOK.md).'
+    return 'The TRINETRA backend is not responding. If this is a cold start it should be up in under a minute — retry, or run the pre-warm script (docs/DEMO_RUNBOOK.md).'
   }
   return e instanceof Error && e.message ? e.message : fallback
 }
