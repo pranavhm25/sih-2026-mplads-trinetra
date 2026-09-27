@@ -31,26 +31,30 @@ CASE_SEQUENCE_START = 1001
 
 
 def next_case_number(db: Session) -> str:
-    """Deterministic, human-readable case numbers: DRSHY-C-1001, 1002…"""
+    """Deterministic, human-readable case numbers: TRT-C-1001, 1002…
+
+    TRT is the TRINETRA case-number prefix. Legacy DRSHY-C-… numbers are
+    still recognized so pre-rename cases keep counting correctly.
+    """
     last = (
         db.query(InvestigationCase)
         .order_by(InvestigationCase.case_number.desc())
         .first()
     )
-    if last and last.case_number.startswith("DRSHY-C-"):
+    if last and last.case_number.startswith(("TRT-C-", "DRSHY-C-")):
         try:
             n = int(last.case_number.split("-")[-1]) + 1
         except ValueError:
             n = CASE_SEQUENCE_START
     else:
         n = CASE_SEQUENCE_START
-    return f"DRSHY-C-{n}"
+    return f"TRT-C-{n}"
 
 
 def next_case_report_number(db: Session, case: InvestigationCase) -> str:
-    """Per-case report numbering: DRSHY-R-1001-1, -2, …"""
+    """Per-case report numbering: TRT-R-1001-1, -2, …"""
     existing = db.query(Report).filter(Report.case_id == case.id).count()
-    return f"DRSHY-R-{case.case_number.split('-')[-1]}-{existing + 1}"
+    return f"TRT-R-{case.case_number.split('-')[-1]}-{existing + 1}"
 
 
 def create_case(

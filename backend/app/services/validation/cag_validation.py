@@ -7,7 +7,7 @@ flagged.
 
 Layer discipline (enforced by tests):
   1. SOURCE     — verified CAG findings (app/data/cag_catalog.py)
-  2. MAPPING    — Drishti detector mapped to each pattern
+  2. MAPPING    — TRINETRA detector mapped to each pattern
   3. VALIDATION — synthetic reproduction; NEVER presented as a CAG case
 
 Thresholds are never modified to force positive results; detectors and
@@ -45,7 +45,7 @@ PROVENANCE_STATEMENT = (
     "This fixture reproduces the structural characteristics of documented "
     "CAG irregularity patterns for detector validation. It is not the "
     "original CAG dataset, contains no real MPLADS records, and demonstrates "
-    "detection capability only — it does not claim that Drishti detected any "
+    "detection capability only — it does not claim that TRINETRA detected any "
     "real CAG case."
 )
 
@@ -233,7 +233,7 @@ def run_cag_validation(db: Session, today: date | None = None) -> dict:
         "generated_at": None,  # filled by the API layer with a timestamp
         "purpose": (
             "Demonstrate which irregularity PATTERNS documented in CAG audits "
-            "of MPLADS fall within Drishti's detection capability, using a "
+            "of MPLADS fall within TRINETRA's detection capability, using a "
             "controlled synthetic reproduction — not to claim detection of "
             "real CAG cases."
         ),
@@ -302,7 +302,7 @@ def run_cag_validation(db: Session, today: date | None = None) -> dict:
         },
         "disclaimer": (
             "Representative validation — not original CAG case data. "
-            "Drishti capability demonstration only; signals are investigation "
+            "TRINETRA capability demonstration only; signals are investigation "
             "indicators, not findings."
         ),
     }

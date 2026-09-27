@@ -246,7 +246,7 @@ class TestReportLanguageDiscipline:
             PROVENANCE_STATEMENT
         )
         assert "not the original CAG dataset" in PROVENANCE_STATEMENT
-        assert "does not claim that Drishti detected any real CAG case" in (
+        assert "does not claim that TRINETRA detected any real CAG case" in (
             PROVENANCE_STATEMENT
         )
 
@@ -258,7 +258,7 @@ class TestReportLanguageDiscipline:
         assert "No accuracy metrics" in cag_report["data_limitations"]["note"]
 
     def test_report_never_says_drishti_detected_cag_case(self, cag_report):
-        """The word 'detected' must never bind Drishti to a real CAG case."""
+        """The word 'detected' must never bind TRINETRA to a real CAG case."""
         blob = str(cag_report).lower()
         assert "detected a real cag case" not in blob
         assert "drishti detected the cag" not in blob

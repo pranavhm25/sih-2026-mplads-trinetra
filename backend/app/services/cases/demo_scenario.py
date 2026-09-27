@@ -10,7 +10,7 @@ they are separate sanctioned projects — the duplicate concern is not
 substantiated. Every step is recorded in the case audit trail; the original
 AI-generated signals remain untouched as historical detection evidence.
 
-Demo story this implements (PRD R12 / SIH prompt): "Drishti identifies a
+Demo story this implements (PRD R12 / SIH prompt): "TRINETRA identifies a
 risk. A case enters investigation. The investigator reviews the evidence,
 finds a legitimate explanation, and records the outcome 'Not substantiated'.
 The audit trail preserves the decision, and the dashboard counts the case as

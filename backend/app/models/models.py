@@ -1,4 +1,4 @@
-"""SQLAlchemy ORM models — Drishti backend.
+"""SQLAlchemy ORM models — TRINETRA backend.
 
 Implements docs/BACKEND_SCHEMA.md. Layer separation is enforced by design:
 source facts (projects), derived metrics (project_metrics), model output

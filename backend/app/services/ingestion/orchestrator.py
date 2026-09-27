@@ -55,7 +55,7 @@ from app.services.ingestion.validation import (
 logger = logging.getLogger("drishti.ingestion")
 
 SOURCE_NAME_OFFICIAL = "MPLADS e-SAKSHI"
-SOURCE_NAME_SYNTHETIC = "Drishti Synthetic Fixture"
+SOURCE_NAME_SYNTHETIC = "TRINETRA Synthetic Fixture"
 
 
 class ImportRejected(DrishtiError):

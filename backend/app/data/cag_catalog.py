@@ -1,13 +1,13 @@
 """CAG pattern catalog — data, not code (single source of truth).
 
 The catalog records irregularity PATTERNS documented in real CAG audits of
-MPLADS, together with the Drishti detector that could identify each pattern
+MPLADS, together with the TRINETRA detector that could identify each pattern
 and the validation method used to demonstrate the capability.
 
 Layer discipline (mirrors docs/CAG_VALIDATION.md §1):
 
   1. SOURCE       — verified CAG finding (report number, paragraph, quote)
-  2. MAPPING      — Drishti's interpretation: which detector targets the pattern
+  2. MAPPING      — TRINETRA's interpretation: which detector targets the pattern
   3. VALIDATION   — controlled synthetic reproduction of the pattern's
                     structural characteristics
 
@@ -81,13 +81,13 @@ CAG_SOURCES: list[dict] = [
 
 # ---------------------------------------------------------------------------
 # Pattern catalog. Each pattern = one documented irregularity TYPE mapped to
-# the Drishti detector that could identify it.
+# the TRINETRA detector that could identify it.
 #
 # validation_method:
 #   DETECTOR_UNIT      — deterministic detector exercised directly on a
 #                        representative record construction
 #   SYNTHETIC_DATASET  — full pipeline run on a controlled synthetic dataset
-#   NOT_VALIDATABLE    — pattern needs data Drishti does not have; reported
+#   NOT_VALIDATABLE    — pattern needs data TRINETRA does not have; reported
 #                        honestly as a validation gap (never faked)
 # ---------------------------------------------------------------------------
 CAG_PATTERNS: list[dict] = [
@@ -121,7 +121,7 @@ CAG_PATTERNS: list[dict] = [
         "fixture_work_ids": ["CAGV-001-A"],
         "expected_trigger": "COMPLIANCE signal (prohibited-category keyword match)",
         "limitations": (
-            "Drishti matches guidebook categories on description text only; "
+            "TRINETRA matches guidebook categories on description text only; "
             "the real audit verified actual work nature on the ground."
         ),
     },
@@ -156,7 +156,7 @@ CAG_PATTERNS: list[dict] = [
         "fixture_work_ids": [],
         "expected_trigger": None,
         "limitations": (
-            "Work-level exports available to Drishti carry no MP-recommendation "
+            "Work-level exports available to TRINETRA carry no MP-recommendation "
             "or sanction-approval trail, so this pattern cannot be validated "
             "without data that does not exist in the current pipeline. Reported "
             "as a detection gap, not a failure to be patched."
@@ -186,7 +186,7 @@ CAG_PATTERNS: list[dict] = [
         "fixture_work_ids": ["CAGV-003-A"],
         "expected_trigger": "DELAY signal (elapsed ≫ expected duration, low physical progress)",
         "limitations": (
-            "Drishti infers stalling from elapsed-vs-expected duration and "
+            "TRINETRA infers stalling from elapsed-vs-expected duration and "
             "progress gap; the audit verified abandonment from site records. "
             "A stalled work that is within its expected duration is not "
             "detectable from these fields alone."
@@ -241,7 +241,7 @@ CAG_PATTERNS: list[dict] = [
         "irregularity_type": "FUNDS_UTILIZATION",
         "required_data_fields": ["funds available", "expenditure per district/authority"],
         "drishti_detector": "Partial — works with zero/low spend vs cost surface via "
-                            "metrics and ML features, but Drishti has no "
+                            "metrics and ML features, but TRINETRA has no "
                             "authority-level fund ledger",
         "drishti_signal_type": None,
         "validation_method": "NOT_VALIDATABLE",
@@ -249,7 +249,7 @@ CAG_PATTERNS: list[dict] = [
         "expected_trigger": None,
         "limitations": (
             "Fund utilization is a property of District Authority ledgers, not "
-            "of individual works. Drishti's schema (by design) does not model "
+            "of individual works. TRINETRA's schema (by design) does not model "
             "authority-level accounts, so this pattern is out of scope without "
             "an official fund-flow dataset."
         ),
@@ -286,7 +286,7 @@ CAG_PATTERNS: list[dict] = [
         "expected_trigger": "ML unusualness on the spend-vs-progress profile "
                             "(signals converging on the same work)",
         "limitations": (
-            "Scope-change documents are not in the work-level schema; Drishti "
+            "Scope-change documents are not in the work-level schema; TRINETRA "
             "sees only the statistical signature (spend ≫ physical progress), "
             "which is suggestive, not conclusive."
         ),
@@ -354,7 +354,7 @@ CAG_PATTERNS: list[dict] = [
         "expected_trigger": "COMPLIANCE signal (UNAPPROVED_TRUST payee indicator)",
         "limitations": (
             "Flags the agency TYPE; verifying actual approval status or "
-            "ceiling accumulation needs a register Drishti does not hold."
+            "ceiling accumulation needs a register TRINETRA does not hold."
         ),
     },
     {
@@ -382,7 +382,7 @@ CAG_PATTERNS: list[dict] = [
         "expected_trigger": None,
         "limitations": (
             "A records-keeping deficit is not detectable from work-level data "
-            "rows. It motivates Drishti's DATA_QUALITY signal family but "
+            "rows. It motivates TRINETRA's DATA_QUALITY signal family but "
             "cannot be validated as a detector against this finding."
         ),
     },

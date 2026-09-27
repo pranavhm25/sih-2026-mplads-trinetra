@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Drishti demo pre-warm + readiness check (docs/DEMO_RUNBOOK.md).
+"""TRINETRA demo pre-warm + readiness check (docs/DEMO_RUNBOOK.md).
 
 Two modes, one script:
 
@@ -80,7 +80,7 @@ def _request(
 def prewarm(base: str, max_wait_s: float) -> int:
     """Poll liveness then readiness until the backend can serve the demo."""
     base = base.rstrip("/")
-    print(f"Pre-warming Drishti backend at {base}")
+    print(f"Pre-warming TRINETRA backend at {base}")
     print("  Liveness:  GET /api/v1/health")
     print("  Readiness: GET /api/v1/health/ready (DB + demo dataset)\n")
 
@@ -139,7 +139,7 @@ def check(base: str, frontend: str) -> int:
     base = base.rstrip("/")
     failures: list[str] = []
 
-    print(f"Verifying Drishti demo stack\n  backend:  {base}\n  frontend: {frontend}\n")
+    print(f"Verifying TRINETRA demo stack\n  backend:  {base}\n  frontend: {frontend}\n")
 
     # 1. Frontend reachable.
     code, _ = _request(frontend)
@@ -220,7 +220,7 @@ def check(base: str, frontend: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Drishti demo pre-warm + readiness check (docs/DEMO_RUNBOOK.md)."
+        description="TRINETRA demo pre-warm + readiness check (docs/DEMO_RUNBOOK.md)."
     )
     parser.add_argument(
         "mode", nargs="?", default="prewarm", choices=["prewarm", "check"],

@@ -1,4 +1,4 @@
-"""Drishti API — FastAPI application entrypoint."""
+"""TRINETRA API — FastAPI application entrypoint."""
 from __future__ import annotations
 
 import logging
@@ -23,7 +23,7 @@ def _safe_db_label() -> str:
     return "sqlite" if settings.is_sqlite else settings.database_url.split("://")[0]
 
 
-logger.info("Starting Drishti API (env=%s, db=%s)", settings.app_env, _safe_db_label())
+logger.info("Starting TRINETRA API (env=%s, db=%s)", settings.app_env, _safe_db_label())
 
 
 # Initialize / migrate schema idempotently on startup.
@@ -59,10 +59,10 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Drishti — MPLADS Risk Intelligence & Investigation Platform",
+    title="TRINETRA — MPLADS Risk Intelligence & Investigation Platform",
     version="0.1.0",
     description=(
-        "Investigation-first decision support for MPLADS. Drishti detects "
+        "Investigation-first decision support for MPLADS. TRINETRA detects "
         "potential irregularities, explains the evidence, and prioritizes "
         "works for human investigation. It never declares a project fraudulent."
     ),
@@ -104,7 +104,7 @@ app.include_router(api_router)
 def root():
     """Friendly landing endpoint showing API status and documentation links."""
     return {
-        "name": "Drishti API",
+        "name": "TRINETRA API",
         "description": "MPLADS Risk Intelligence & Investigation Platform",
         "status": "online",
         "env": settings.app_env,

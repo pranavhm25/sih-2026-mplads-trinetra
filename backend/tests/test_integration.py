@@ -175,7 +175,7 @@ class TestAPI:
         assert r.status_code == 201
         case = r.json()["data"]
         assert case["status"] == "OPEN"
-        assert case["case_number"].startswith("DRSHY-C-")
+        assert case["case_number"].startswith("TRT-C-")
         assert len(case["events"]) >= 1
 
         # Duplicate active case rejected
@@ -217,7 +217,7 @@ class TestAPI:
         r = client.post(f"/api/v1/cases/{case['id']}/report")
         assert r.status_code == 201
         report = r.json()["data"]["report"]
-        assert report["report_number"].startswith("DRSHY-R-")
+        assert report["report_number"].startswith("TRT-R-")
         dl = client.get(f"/api/v1/reports/{report['id']}/download")
         assert dl.status_code == 200
         assert dl.headers["content-type"] == "application/pdf"

@@ -1,1 +1,1 @@
-"""Drishti backend application package."""
+"""TRINETRA backend application package."""

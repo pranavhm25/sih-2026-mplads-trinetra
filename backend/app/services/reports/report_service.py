@@ -71,7 +71,7 @@ def generate_case_report(db: Session, case: InvestigationCase, officer: Officer)
         rightMargin=18 * mm,
         topMargin=16 * mm,
         bottomMargin=16 * mm,
-        title=f"Drishti Investigation Report {report_number}",
+        title=f"TRINETRA Investigation Report {report_number}",
     )
 
     styles = getSampleStyleSheet()
@@ -87,7 +87,7 @@ def generate_case_report(db: Session, case: InvestigationCase, officer: Officer)
     generated_at = datetime.now(timezone.utc)
 
     # --- Header -----------------------------------------------------------
-    story.append(Paragraph("DRISHTI — INVESTIGATION SUPPORT REPORT", h1))
+    story.append(Paragraph("TRINETRA — INVESTIGATION SUPPORT REPORT", h1))
     story.append(Paragraph(
         "Decision-support document. Signals below are automated indicators, "
         "not official findings. Verification and classification are performed by officers.",

@@ -1,7 +1,7 @@
 [project]
 name = "drishti-backend"
 version = "0.1.0"
-description = "Drishti — MPLADS Risk Intelligence & Investigation Platform (backend)"
+description = "TRINETRA — MPLADS Risk Intelligence & Investigation Platform (backend)"
 requires-python = ">=3.11"
 
 [tool.pytest.ini_options]
