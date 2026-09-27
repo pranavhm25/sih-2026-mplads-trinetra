@@ -939,34 +939,34 @@ Given the 3-day runway, these should be treated as mandatory.
 
 ### Data
 
--   [ ] Real MPLADS dataset
--   [ ] Data cleaning
--   [ ] Data validation
+-   [x] Real MPLADS dataset
+-   [x] Data cleaning
+-   [x] Data validation
 
 ### Detection
 
--   [ ] Cost anomaly
--   [ ] Financial vs physical mismatch
--   [ ] Delay detection
--   [ ] Duplicate candidate detection
--   [ ] Isolation Forest anomaly detection
--   [ ] Peer benchmarking
+-   [x] Cost anomaly
+-   [x] Financial vs physical mismatch
+-   [x] Delay detection
+-   [x] Duplicate candidate detection
+-   [x] Isolation Forest anomaly detection
+-   [x] Peer benchmarking
 
 ### Intelligence
 
--   [ ] Explainable investigation priority
--   [ ] Evidence breakdown
--   [ ] Multi-signal convergence
+-   [x] Explainable investigation priority
+-   [x] Evidence breakdown
+-   [x] Multi-signal convergence
 
 ### Product
 
--   [ ] Command dashboard
--   [ ] Investigation queue
--   [ ] Project intelligence page
--   [ ] Geographic visualization
--   [ ] Investigation case creation
--   [ ] Recommended verification actions
--   [ ] Audit report generation
+-   [x] Command dashboard
+-   [x] Investigation queue
+-   [x] Project intelligence page
+-   [x] Geographic visualization
+-   [x] Investigation case creation
+-   [x] Recommended verification actions
+-   [x] Audit report generation
 
 ------------------------------------------------------------------------
 
@@ -974,12 +974,12 @@ Given the 3-day runway, these should be treated as mandatory.
 
 If the core system is stable:
 
--   [ ] Contractor/agency concentration
+-   [x] Contractor/agency concentration
 -   [ ] Risk Replay
--   [ ] Officer feedback
+-   [x] Officer feedback
 -   [ ] Compliance dashboard
--   [ ] CAG-informed rule library
--   [ ] Better role-based views
+-   [x] CAG-informed rule library
+-   [x] Better role-based views
 
 ------------------------------------------------------------------------
 

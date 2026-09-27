@@ -25,32 +25,32 @@ Deliver a stable SIH MVP in three days with the complete path:
 - [ ] Normalize dates, currency and percentages.
 
 ### P0 — Data quality
-- [ ] Missing mandatory fields.
-- [ ] Invalid date ordering.
-- [ ] Expenditure > sanctioned amount.
-- [ ] Progress > 100%.
-- [ ] Duplicate work IDs.
-- [ ] Invalid numeric values.
+- [x] Missing mandatory fields.
+- [x] Invalid date ordering.
+- [x] Expenditure > sanctioned amount.
+- [x] Progress > 100%.
+- [x] Duplicate work IDs.
+- [x] Invalid numeric values.
 
 ### P0 — Derived metrics
-- [ ] Cost deviation.
-- [ ] Expenditure ratio.
-- [ ] Financial/physical gap.
-- [ ] Elapsed days.
-- [ ] Expected duration.
-- [ ] Delay days.
-- [ ] Peer percentile.
+- [x] Cost deviation.
+- [x] Expenditure ratio.
+- [x] Financial/physical gap.
+- [x] Elapsed days.
+- [x] Expected duration.
+- [x] Delay days.
+- [x] Peer percentile.
 
 ### P0 — Detection
-- [ ] Cost anomaly.
-- [ ] Financial/physical mismatch.
-- [ ] Delay detection.
-- [ ] Duplicate candidate detection.
-- [ ] Isolation Forest.
-- [ ] Peer benchmarking.
-- [ ] Evidence records.
-- [ ] Evidence fusion.
-- [ ] Investigation priority.
+- [x] Cost anomaly.
+- [x] Financial/physical mismatch.
+- [x] Delay detection.
+- [x] Duplicate candidate detection.
+- [x] Isolation Forest.
+- [x] Peer benchmarking.
+- [x] Evidence records.
+- [x] Evidence fusion.
+- [x] Investigation priority.
 
 ### P1 — Extended analytics
 - [ ] Agency/contractor concentration.
@@ -156,11 +156,11 @@ Deliver a stable SIH MVP in three days with the complete path:
 - [x] Synthetic validation tests (determinism, injection correctness,
       ground truth, metric math incl. toy dataset, zero-division, JSON
       serialization, end-to-end scenario, DB cleanup).
-- [ ] Unit tests for fusion.
-- [ ] API integration tests.
-- [ ] Dataset fixture tests.
-- [ ] Case state transition tests.
-- [ ] Report generation test.
+- [x] Unit tests for fusion.
+- [x] API integration tests.
+- [x] Dataset fixture tests.
+- [x] Case state transition tests.
+- [x] Report generation test.
 
 ### Frontend
 - [ ] Dashboard loads.
