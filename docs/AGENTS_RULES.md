@@ -1,8 +1,8 @@
-# Drishti — Agent Rules
+# TRINETRA — Agent Rules
 
 ## 1. Mission
 
-Build Drishti as a credible investigation-support platform for MPLADS monitoring.
+Build TRINETRA as a credible investigation-support platform for MPLADS monitoring.
 
 The product is not a generic AI dashboard and not a fraud-verdict engine.
 
@@ -36,7 +36,7 @@ a case as **not substantiated** (CLOSED / NOT_SUBSTANTIATED):
 - UI copy uses neutral wording (amber/ink tones, "Not substantiated"),
   never red/green guilt-innocence visual language.
 
-Drishti prioritizes investigations; it does not determine guilt.
+TRINETRA prioritizes investigations; it does not determine guilt.
 
 ### Rule 2 — Preserve evidence
 Every major alert must expose:

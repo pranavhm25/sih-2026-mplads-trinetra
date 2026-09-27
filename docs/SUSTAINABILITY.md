@@ -1,4 +1,4 @@
-# Drishti — Sustainability Plan (Backlog #10)
+# TRINETRA — Sustainability Plan (Backlog #10)
 
 Addresses the evaluation gap: "no maintenance/ownership/retraining plan."
 

@@ -1,4 +1,4 @@
-# Drishti — Technical Requirements Document
+# TRINETRA — Technical Requirements Document
 
 ## 1. Technical Objective
 

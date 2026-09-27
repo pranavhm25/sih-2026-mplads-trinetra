@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-echo "Stopping Drishti containers..."
+echo "Stopping TRINETRA containers..."
 docker compose down

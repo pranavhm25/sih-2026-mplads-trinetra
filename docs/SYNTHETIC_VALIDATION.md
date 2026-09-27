@@ -1,6 +1,6 @@
 # Synthetic Model Validation — Controlled Injection Benchmark
 
-**Drishti — MPLADS Risk Intelligence & Investigation Platform**
+**TRINETRA — MPLADS Risk Intelligence & Investigation Platform**
 Report version: `synthetic-validation-1`
 Benchmark artifact: `docs/synthetic_validation_results.json`
 Runner: `backend/scripts/run_synthetic_validation.py`
@@ -13,7 +13,7 @@ Engine: `backend/app/services/validation/synthetic/`
 
 ## 1. Objective
 
-Quantitatively evaluate Drishti's existing detection pipeline using
+Quantitatively evaluate TRINETRA's existing detection pipeline using
 controlled synthetic data with explicit ground truth, and report
 precision / recall / F1 / false-positive rate / detection rate / confusion
 matrix — without modifying the pipeline, its thresholds, or its behaviour.
@@ -44,7 +44,7 @@ limitation in §11.
 
 Injectors add records **on top of** the baseline; each is registered in a
 ground-truth side table. Five anomaly types — exactly the five that map to
-existing Drishti detectors:
+existing TRINETRA detectors:
 
 | Injector | Anomaly type | Construction | Expected detector |
 |---|---|---|---|

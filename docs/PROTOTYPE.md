@@ -1,4 +1,4 @@
-# Drishti — Prototype Feature Draft
+# TRINETRA — Prototype Feature Draft
 
 **Scope rule:** the prototype demonstrates the full story —
 

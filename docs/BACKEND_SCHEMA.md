@@ -1,4 +1,4 @@
-# Drishti — Backend Schema
+# TRINETRA — Backend Schema
 
 ## 1. Database
 

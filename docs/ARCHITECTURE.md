@@ -1,8 +1,8 @@
-# Drishti — System Architecture
+# TRINETRA — System Architecture
 
 ## 1. Architecture Philosophy
 
-Drishti is organized around an **evidence pipeline**, not a dashboard pipeline.
+TRINETRA is organized around an **evidence pipeline**, not a dashboard pipeline.
 
 ```text
 DATA

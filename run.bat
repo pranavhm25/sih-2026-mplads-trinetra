@@ -1,9 +1,9 @@
 @echo off
 setlocal
-title Drishti Platform
+title TRINETRA Platform
 
 echo ==========================================================
-echo  Starting Drishti - MPLADS Risk Intelligence Platform
+echo  Starting TRINETRA - MPLADS Risk Intelligence Platform
 echo ==========================================================
 echo.
 

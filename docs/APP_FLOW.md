@@ -1,4 +1,4 @@
-# Drishti — Application Flow
+# TRINETRA — Application Flow
 
 ## 1. Primary User Journey
 

@@ -1,12 +1,14 @@
-# Drishti — MPLADS Risk Intelligence & Investigation Platform
+# TRINETRA — MPLADS Risk Intelligence & Investigation Platform
+
+**Detect. Investigate. Verify.**
 
 **Smart India Hackathon 2026 · Problem Statement SIH26102 · Theme: Smart Automation · Team Codeholics**
 
-Drishti is an **investigation-first decision-support platform** for the Member of Parliament Local Area Development Scheme (MPLADS). It ingests available MPLADS data, detects potential irregularities, explains the evidence behind every signal, prioritizes works for human investigation, and manages the resulting cases through to audit-ready reports.
+TRINETRA is an **investigation-first decision-support platform** for the Member of Parliament Local Area Development Scheme (MPLADS). It ingests available MPLADS data, detects potential irregularities, explains the evidence behind every signal, prioritizes works for human investigation, and manages the resulting cases through to audit-ready reports.
 
 > **AI FLAG ≠ FRAUD**
 >
-> Drishti identifies potential irregularities and prioritizes investigations. It never declares fraud. Authorized officials review the evidence and determine the final outcome — including explicitly clearing a flag when the investigation does not substantiate the concern.
+> TRINETRA identifies potential irregularities and prioritizes investigations. It never declares fraud. Authorized officials review the evidence and determine the final outcome — including explicitly clearing a flag when the investigation does not substantiate the concern.
 
 **Live**
 
@@ -15,7 +17,7 @@ Drishti is an **investigation-first decision-support platform** for the Member o
 | Application | https://drishti-mplads-codeholics.vercel.app |
 | API health | https://drishti-backend-h2c8.onrender.com/api/v1/health |
 | API docs (Swagger) | https://drishti-backend-h2c8.onrender.com/docs |
-| Source | https://github.com/pranavhm25/sih-2026-mplads |
+| Source | https://github.com/pranavhm25/sih-2026-mplads-trinetra |
 
 Demo sign-in: `ministry@drishti.demo` / `drishti-demo` (see [Demo accounts](#demo-accounts)). Hosted on free tiers — the backend sleeps when idle; see [Demo reliability](#demo-reliability).
 
@@ -25,7 +27,7 @@ Demo sign-in: `ministry@drishti.demo` / `drishti-demo` (see [Demo accounts](#dem
 
 MPLADS administrators and auditors must monitor thousands of works with limited staff. Today that review is largely manual: unusual cost patterns, stalled works and suspiciously similar projects surface only when someone happens to notice them, and there is no shared, auditable trail from a suspicion to a concluded investigation.
 
-Drishti addresses this with a pipeline: **DATA → DETECT → EXPLAIN → PRIORITIZE → INVESTIGATE → DOCUMENT**. It ingests official and controlled synthetic data, derives comparable metrics, runs an explainable detection layer (deterministic rules, categorical compliance checks, NLP duplicate candidates and an unsupervised Isolation Forest), fuses the independent evidence into an investigation priority, and carries each case through a governed human lifecycle with a tamper-evident audit trail and PDF reporting.
+TRINETRA addresses this with a pipeline: **DATA → DETECT → EXPLAIN → PRIORITIZE → INVESTIGATE → DOCUMENT**. It ingests official and controlled synthetic data, derives comparable metrics, runs an explainable detection layer (deterministic rules, categorical compliance checks, NLP duplicate candidates and an unsupervised Isolation Forest), fuses the independent evidence into an investigation priority, and carries each case through a governed human lifecycle with a tamper-evident audit trail and PDF reporting.
 
 Three principles are enforced in code, not just prose:
 
@@ -63,11 +65,11 @@ EVIDENCE & DECISION  (notes, outcome, structured reason)
 AUDIT REPORT  (PDF, tamper-evident event chain)
 ```
 
-Drishti is an intelligence and investigation layer over available MPLADS data — not a transaction system, not a replacement for eSAKSHI, and not a fraud classifier.
+TRINETRA is an intelligence and investigation layer over available MPLADS data — not a transaction system, not a replacement for eSAKSHI, and not a fraud classifier.
 
-## 4. Why Drishti
+## 4. Why TRINETRA
 
-| Capability | Drishti |
+| Capability | TRINETRA |
 |---|---|
 | Data ingestion | Official CSV/XLSX imports with schema detection, column mapping, unit handling and SHA-256 dedup; one-click synthetic fixtures |
 | Data quality | Per-row validation issues (row, field, rule, severity) and deterministic GOOD/ACCEPTABLE/DEGRADED/FAILED grades with plain-language reasons |
@@ -177,7 +179,7 @@ The fused score orders the investigation queue. It is an *evidence-weighted atte
 
 **Textual similarity alone does not establish duplication.** Generic government work descriptions ("Construction of community hall at Ward N") are naturally similar across thousands of works, so a text-only duplicate rule would drown investigators in false positives.
 
-Drishti's pipeline is deliberately two-stage:
+TRINETRA's pipeline is deliberately two-stage:
 
 ```text
 Stage 1 — candidate generation (linguistic only)
@@ -203,7 +205,7 @@ The flagship fixture pair demonstrates the full chain: MPL-10281 and MPL-10412 s
 
 ## 9. CAG-Grounded Validation
 
-Drishti's categorical compliance checks are anchored to real audit knowledge. **CAG audit reports are used as authoritative references for documented irregularity patterns. Where underlying case-level data is unavailable, representative synthetic fixtures reproduce relevant structural characteristics for detector validation.** No CAG-audited case is ingested as data, and no claim is made that Drishti "detected a real CAG case."
+TRINETRA's categorical compliance checks are anchored to real audit knowledge. **CAG audit reports are used as authoritative references for documented irregularity patterns. Where underlying case-level data is unavailable, representative synthetic fixtures reproduce relevant structural characteristics for detector validation.** No CAG-audited case is ingested as data, and no claim is made that TRINETRA "detected a real CAG case."
 
 The catalog (`backend/app/data/cag_catalog.py`) is data, not code, and maintains a strict layer discipline:
 
@@ -212,7 +214,7 @@ CAG documented irregularity  (verified source: report number, para, quote)
   ↓
 Pattern abstraction          (what structural signature would a detector see?)
   ↓
-Drishti detector mapping     (which detector targets the pattern, with what threshold)
+TRINETRA detector mapping     (which detector targets the pattern, with what threshold)
   ↓
 Representative validation fixture  (synthetic, is_synthetic=True, never presented as real)
   ↓
@@ -227,7 +229,7 @@ Currently cataloged: **9 irregularity patterns** mapped to detectors, traceable 
 | CAG-2010-31 | Report No. 31 of 2010 — Performance Audit (Civil) of MPLADS (2004-05 to 2008-09) | Executive summary paras 3.2–3.4, 4.2, 6.1–6.3, 7.1 |
 | CAG-2025-22 | Report No. 22 of 2025 — Compliance Audit (Civil & Commercial), Union Government | Para 3.1 (p. 49): unfruitful expenditure of ₹62.61 lakh on an MPLADS indoor sports hall |
 
-Patterns that would require data Drishti does not have are explicitly marked **NOT_VALIDATABLE** in the catalog rather than silently dropped. Details: [docs/CAG_VALIDATION.md](docs/CAG_VALIDATION.md).
+Patterns that would require data TRINETRA does not have are explicitly marked **NOT_VALIDATABLE** in the catalog rather than silently dropped. Details: [docs/CAG_VALIDATION.md](docs/CAG_VALIDATION.md).
 
 ## 10. Synthetic Validation
 
@@ -273,7 +275,7 @@ Every dataset and derived row carries one of three provenance labels:
 | **DERIVED** | Metrics calculated from source data (gap, delay, expenditure ratio, peer statistics) | `project_metrics` rows with versioned derivation provenance |
 | **SYNTHETIC** | Controlled fixtures for demonstration and validation | Bundled fixtures, always ingested with `is_synthetic=True` and labeled "Synthetic demo data" in the UI |
 
-**The current public e-SAKSHI dashboard exposes allocation-level exports and scheme aggregates; per-work analytical fields (work-level sanctioned cost, expenditure, progress, dates, coordinates, agency) are not available from the observed public exports.** Drishti's work-level ingestion path is implemented and tested, absent fields are stored as NULL and displayed as "not reported" — they are never fabricated or estimated.
+**The current public e-SAKSHI dashboard exposes allocation-level exports and scheme aggregates; per-work analytical fields (work-level sanctioned cost, expenditure, progress, dates, coordinates, agency) are not available from the observed public exports.** TRINETRA's work-level ingestion path is implemented and tested, absent fields are stored as NULL and displayed as "not reported" — they are never fabricated or estimated.
 
 The demonstration dataset is a deterministic synthetic fixture (`random.Random(26102)`, fixed reference date 2026-09-01) constructed to exercise every detector. It is labeled synthetic at every display point and is never presented as real MPLADS data.
 
@@ -450,7 +452,7 @@ The demo runs on free tiers, and honesty about that is part of the design:
 - **Render free tier sleeps the backend** after idle periods; the first request can take an estimated 30–60 s to wake it. (No uptime guarantee is offered or implied.)
 - `GET /api/v1/health` — instant liveness, no database touch. `GET /api/v1/health/ready` — readiness: database reachable + demo dataset present; never runs detection.
 - **Frontend retry layer**: idempotent GET requests retry with bounded exponential backoff (1/2/4/8/8 s, ~23 s window) on network errors and 502/503/504 only; mutations never auto-retry.
-- **Waking-backend gate**: data pages show *"Drishti backend is starting. Retrying connection…"* and auto-recover when readiness returns — the wake never looks like a crash.
+- **Waking-backend gate**: data pages show *"TRINETRA backend is starting. Retrying connection…"* and auto-recover when readiness returns — the wake never looks like a crash.
 - **Pre-warm and check tooling** (stdlib-only):
 
 ```bash
@@ -556,5 +558,5 @@ Stated plainly:
 **Team Codeholics** · Smart India Hackathon 2026 · Problem Statement SIH26102
 
 <p align="center">
-  <strong>Drishti prioritizes investigations; it does not determine guilt.</strong>
+  <strong>TRINETRA prioritizes investigations; it does not determine guilt.</strong>
 </p>

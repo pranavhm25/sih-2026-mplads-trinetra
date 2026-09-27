@@ -1,5 +1,5 @@
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host " Starting Drishti — MPLADS Risk Intelligence Platform" -ForegroundColor Cyan
+Write-Host " Starting TRINETRA — MPLADS Risk Intelligence Platform" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host ""
 

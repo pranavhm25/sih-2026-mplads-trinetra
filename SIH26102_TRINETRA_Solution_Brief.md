@@ -1,8 +1,8 @@
 # SIH 2026 --- Problem Statement 26102
 
-## MPLADS AI Risk Intelligence & Investigation Platform
+## MPLADS Risk Intelligence & Investigation Platform
 
-**Working Product Name:** Drishti\
+**Working Product Name:** TRINETRA — *Detect. Investigate. Verify.*\
 **PS ID:** 26102\
 **Organization:** MoSPI\
 **Department:** Data Informatics & Innovation Division (DIID)\
@@ -106,11 +106,11 @@ decision.
 
 ## Product
 
-### Drishti --- MPLADS Risk Intelligence & Investigation Platform
+### TRINETRA --- MPLADS Risk Intelligence & Investigation Platform
 
 ### One-line description
 
-> **Drishti continuously analyzes MPLADS works, identifies unusual
+> **TRINETRA continuously analyzes MPLADS works, identifies unusual
 > patterns, explains why they are unusual, prioritizes them for
 > investigation, and helps authorities investigate and document them.**
 
@@ -376,7 +376,7 @@ to produce an investigation priority.
 
 # 6. Evidence Fusion
 
-A central feature of Drishti is combining independent signals.
+A central feature of TRINETRA is combining independent signals.
 
 Example:
 
@@ -759,7 +759,7 @@ ANALYTICS
 DASHBOARD
 ```
 
-### Drishti
+### TRINETRA
 
 ``` text
 DATA
@@ -1340,7 +1340,7 @@ The entire project can be summarized as:
 ## Team Pitch
 
 > **"MPLADS already generates large amounts of project and expenditure
-> data, but authorities cannot manually inspect every work. Drishti adds
+> data, but authorities cannot manually inspect every work. TRINETRA adds
 > an AI-powered risk intelligence layer that detects unusual cost,
 > expenditure, progress, timeline and duplication patterns. More
 > importantly, it explains why a project was flagged, compares it with

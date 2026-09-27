@@ -2,7 +2,7 @@
 set -e
 
 echo "=========================================================="
-echo " Starting Drishti — MPLADS Risk Intelligence Platform"
+echo " Starting TRINETRA — MPLADS Risk Intelligence Platform"
 echo "=========================================================="
 
 if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1; then

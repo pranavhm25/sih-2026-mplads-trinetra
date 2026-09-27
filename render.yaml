@@ -1,4 +1,4 @@
-# Render.com Blueprint for Drishti Backend
+# Render.com Blueprint for the TRINETRA backend
 # Allows 1-click free deployment via Render Dashboard -> Blueprints
 # NOTE: the service name IS the public URL (<name>.onrender.com), and Render
 # does not allow renaming subdomains after creation. If this name is taken,

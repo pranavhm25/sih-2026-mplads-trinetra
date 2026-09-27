@@ -1,4 +1,4 @@
-# Drishti — Implementation Tasks
+# TRINETRA — Implementation Tasks
 
 ## Sprint Objective
 

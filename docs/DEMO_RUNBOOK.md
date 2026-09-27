@@ -1,6 +1,6 @@
-# Drishti — Demo Runbook (SIH 2026)
+# TRINETRA — Demo Runbook (SIH 2026)
 
-Operational guide for running the Drishti demo reliably, including against a
+Operational guide for running the TRINETRA demo reliably, including against a
 sleeping free-tier backend. Print this page or keep it open on a second device.
 
 **Golden rule:** run the pre-warm script **15 minutes before** the demo, then
@@ -80,7 +80,7 @@ click through them once before the audience arrives.
 
 ## 6. What to do if the backend is sleeping (Render free tier)
 
-The UI will show **"Drishti backend is starting. Retrying connection…"** —
+The UI will show **"TRINETRA backend is starting. Retrying connection…"** —
 this is expected behavior, not a crash. The frontend retries GET requests
 with exponential backoff (~23 s window) and the page gate polls readiness
 (~90 s window).

@@ -1,10 +1,10 @@
-# Drishti — Design System
+# TRINETRA — Design System
 
 ## 1. Design Direction
 
 ### Product character
 
-Drishti should look like a **serious government investigation workstation**, not a generic AI SaaS dashboard.
+TRINETRA should look like a **serious government investigation workstation**, not a generic AI SaaS dashboard.
 
 The visual language should communicate:
 - evidence
@@ -89,7 +89,7 @@ Use a left navigation rail and a wide working canvas.
 
 ```text
 ┌─────────────┬─────────────────────────────────────────────────────┐
-│ DRISHTI     │ Command Center                                    │
+│ TRINETRA     │ Command Center                                    │
 │             │                                                     │
 │ Overview    │ Summary strip                                      │
 │ Queue       │ ─────────────────────────────────────────────────── │

@@ -1,4 +1,4 @@
-# Drishti — data directory
+# TRINETRA — data directory
 
 Layers (never mix them):
 
@@ -22,13 +22,13 @@ The MPLADS e-SAKSHI public dashboard currently exposes (observed):
 
 Work-level fields (per-work sanctioned cost, expenditure, progress, dates,
 coordinates, agency) are **not currently available** in the observed public
-exports. Drishti keeps the work-level ingestion path extensible
+exports. TRINETRA keeps the work-level ingestion path extensible
 (`WORK_LEVEL` dataset type) but never fabricates those fields for official
 datasets — absence is stored as NULL and reported as unavailable.
 
 ## Unit handling
 
 Dashboard aggregates are displayed in **Crore**; allocation exports carry
-**raw rupee** amounts. Drishti normalizes monetary values together with
+**raw rupee** amounts. TRINETRA normalizes monetary values together with
 their unit (`RUPEE | LAKH | CRORE`) and never compares across units without
 explicit conversion (`to_rupees`).

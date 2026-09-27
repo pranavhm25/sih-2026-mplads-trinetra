@@ -1,8 +1,8 @@
-# Drishti — Project Memory
+# TRINETRA — Project Memory
 
 ## Project Identity
 
-- Product: **Drishti**
+- Product: **TRINETRA**
 - SIH Problem Statement: **26102**
 - Organization: **MoSPI**
 - Division: **Data Informatics & Innovation Division (DIID)**
@@ -11,15 +11,15 @@
 
 ## Product Definition
 
-Drishti is an **MPLADS Risk Intelligence & Investigation Platform**.
+TRINETRA is an **MPLADS Risk Intelligence & Investigation Platform**.
 
 One-line description:
 
-> Drishti continuously analyzes MPLADS works, identifies unusual patterns, explains why they are unusual, prioritizes them for investigation, and helps authorities investigate and document them.
+> TRINETRA continuously analyzes MPLADS works, identifies unusual patterns, explains why they are unusual, prioritizes them for investigation, and helps authorities investigate and document them.
 
 ## Core Principle
 
-Drishti must not automatically declare a project fraudulent.
+TRINETRA must not automatically declare a project fraudulent.
 
 The system identifies:
 - potential irregularities
@@ -248,7 +248,7 @@ The MPLADS e-SAKSHI public dashboard currently exposes:
   Parliament | Constituency | Allocated Amount (₹). Rajya Sabha: same plus
   Elected/Nominated, without Constituency.
 - Per-work analytical fields (sanctioned cost, expenditure, progress,
-  dates, coordinates, agency) are NOT currently exposed. Drishti stores
+  dates, coordinates, agency) are NOT currently exposed. TRINETRA stores
   NULL for absent fields, never fabricates them, and keeps the WORK_LEVEL
   ingestion path extensible for future official datasets.
 
@@ -308,13 +308,13 @@ DEMO_ACCOUNTS_ENABLED) — see .env.example.
 ## CAG-Grounded Validation Layer (2026-09-26)
 
 Capability validation proving which irregularity PATTERNS documented in
-real CAG audits of MPLADS fall within Drishti's detection capability.
+real CAG audits of MPLADS fall within TRINETRA's detection capability.
 Full report: docs/CAG_VALIDATION.md. Architecture:
 
 - **Catalog** (`app/data/cag_catalog.py`): 3 verified CAG sources
   (Report 3A of 2001; Report No. 31 of 2010 — tabled 18 Mar 2011;
   Report No. 22 of 2025, Para 3.1) and 9 irregularity patterns with
-  verbatim quotes, required data fields, mapped Drishti detector and
+  verbatim quotes, required data fields, mapped TRINETRA detector and
   honest limitations. Adding findings = adding catalog entries.
 - **Fixture** (`app/data/fixtures/cag_patterns.csv`): 17 synthetic works,
   all `CAGV-`-prefixed, reproducing ONLY the structural signature of each
@@ -439,7 +439,7 @@ minutes of a demo must not look like a crash.
   mutations never auto-retry (duplicate-case risk); `describeLoadFailure`
   gives waking-friendly copy; `setRetryDelaysForTesting` for vitest.
 - **Waking UX**: `useBackendReady` (bounded poller, 1.5 s × 60 ≈ 90 s
-  window) + `BackendGate` → "Drishti backend is starting. Retrying
+  window) + `BackendGate` → "TRINETRA backend is starting. Retrying
   connection…" (amber, role=status) in Command Center / Investigation
   Queue / Project Intelligence; exhausted window shows operator guidance
   (never "crashed", never stack traces).
@@ -461,7 +461,7 @@ minutes of a demo must not look like a crash.
 ## Not-Substantiated Case Outcome (2026-09-26)
 
 PRD R12 extension implementing "AI FLAG ≠ FRAUD": an AI-generated risk flag
-can be explicitly cleared by human investigation. Drishti prioritizes
+can be explicitly cleared by human investigation. TRINETRA prioritizes
 investigations; it does not determine guilt.
 
 - **State machine** (`CASE_TRANSITIONS` in app/core/constants.py, enforced

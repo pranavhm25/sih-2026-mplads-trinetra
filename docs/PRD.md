@@ -1,7 +1,7 @@
-# Drishti — Product Requirements Document
+# TRINETRA — Product Requirements Document
 
 **Problem Statement:** SIH 2026 — 26102  
-**Working Product:** Drishti  
+**Working Product:** TRINETRA  
 **Organization:** MoSPI  
 **Division:** Data Informatics & Innovation Division (DIID)  
 **Category:** Software  
@@ -9,9 +9,9 @@
 
 ## 1. Product Summary
 
-Drishti is an MPLADS risk-intelligence and investigation platform. It analyzes project, expenditure, progress, timeline, location, agency and related data to identify unusual patterns, explain the evidence behind them, prioritize projects for human investigation, and maintain an audit-ready case workflow.
+TRINETRA is an MPLADS risk-intelligence and investigation platform. It analyzes project, expenditure, progress, timeline, location, agency and related data to identify unusual patterns, explain the evidence behind them, prioritize projects for human investigation, and maintain an audit-ready case workflow.
 
-Drishti does **not** declare a project fraudulent. It identifies potential irregularities and projects that warrant investigation. Authorized officials remain responsible for verification and decisions.
+TRINETRA does **not** declare a project fraudulent. It identifies potential irregularities and projects that warrant investigation. Authorized officials remain responsible for verification and decisions.
 
 > **Core product story:** Detect → Explain → Prioritize → Investigate → Document → Learn
 
@@ -194,7 +194,7 @@ Support:
 - false positive / confirmed concern / not substantiated / needs
   verification feedback
 
-**AI FLAG ≠ FRAUD.** Drishti prioritizes investigations; it does not
+**AI FLAG ≠ FRAUD.** TRINETRA prioritizes investigations; it does not
 determine guilt. A case closed as NOT_SUBSTANTIATED records that the
 available evidence did not substantiate the flagged concern — it is not a
 finding of fraud or of innocence, and it does not imply the automated flag
@@ -256,4 +256,4 @@ Agency concentration, Risk Replay, feedback, compliance dashboard, configurable 
 
 ## 12. Product Boundary
 
-Drishti is a decision-support and investigation workflow system. It must never represent an analytical signal as proof of fraud, corruption or wrongdoing.
+TRINETRA is a decision-support and investigation workflow system. It must never represent an analytical signal as proof of fraud, corruption or wrongdoing.
