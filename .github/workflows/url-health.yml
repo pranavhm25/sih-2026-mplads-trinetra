@@ -1,0 +1,77 @@
+# Catch stale or deleted backends early.
+#
+# Greps every TRACKED file for *.onrender.com URLs, then health-checks each
+# one (GET <url>/api/v1/health). A URL that never returns 200 — after retries
+# that tolerate free-tier cold starts (~30-60 s) — fails the job and names
+# every file that references it, so dead links get fixed the moment they are
+# committed. The daily schedule also catches services deleted or suspended
+# outside the repo (e.g. removed in the Render dashboard).
+#
+# Runs on push to main + daily schedule + manual dispatch. Deliberately NOT
+# on pull requests: production URLs going down is unrelated to the PR and a
+# cold start would fail unrelated changes.
+name: Backend URL health
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * *"   # daily; off-the-hour minute avoids GitHub cron load
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-url-health
+  cancel-in-progress: false
+
+jobs:
+  check-referenced-urls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Collect onrender.com URLs referenced in the repo
+        id: urls
+        run: |
+          # git grep searches tracked files only — no node_modules/build noise.
+          urls=$(git grep -hoE 'https://[a-z0-9-]+\.onrender\.com' -- . | sort -u)
+          if [ -z "$urls" ]; then
+            echo "No onrender.com URLs referenced in the repo — nothing to check."
+          else
+            echo "URLs referenced in the repo:"
+            echo "$urls"
+          fi
+          {
+            echo "urls<<EOF"
+            echo "$urls"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Health-check each referenced backend
+        if: steps.urls.outputs.urls != ''
+        run: |
+          set -u
+          fail=0
+          mapfile -t urls <<< "${{ steps.urls.outputs.urls }}"
+          for url in "${urls[@]}"; do
+            [ -z "$url" ] && continue
+            echo "── $url"
+            code=""
+            for attempt in 1 2 3; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" \
+                --max-time 90 "$url/api/v1/health") || code=000
+              echo "  attempt $attempt: HTTP $code"
+              if [ "$code" = "200" ]; then break; fi
+              if [ "$attempt" -lt 3 ]; then sleep 30; fi
+            done
+            if [ "$code" != "200" ]; then
+              echo "::error::$url/api/v1/health never returned 200 (last HTTP $code)."
+              echo "  Referenced in:"
+              git grep -n "$url" -- . | sed 's/^/    /'
+              fail=1
+            fi
+          done
+          exit $fail
