@@ -2,11 +2,11 @@
 
 **Detect. Investigate. Verify.**
 
-**Smart India Hackathon 2026 · Problem Statement SIH26102 · Theme: Smart Automation · Team Codeholics**
+**Smart India Hackathon 2026 · Problem Statement SIH26102 · Theme: Smart Automation · Category: Software · Team Codeholics**
 
 TRINETRA is an **investigation-first decision-support platform** for the Member of Parliament Local Area Development Scheme (MPLADS). It ingests available MPLADS data, detects potential irregularities, explains the evidence behind every signal, prioritizes works for human investigation, and manages the resulting cases through to audit-ready reports.
 
-> **AI FLAG ≠ FRAUD**
+> **AI FLAG =! FRAUD**
 >
 > TRINETRA identifies potential irregularities and prioritizes investigations. It never declares fraud. Authorized officials review the evidence and determine the final outcome — including explicitly clearing a flag when the investigation does not substantiate the concern.
 
@@ -261,7 +261,7 @@ cd backend
 python scripts/run_synthetic_validation.py            # writes docs/synthetic_validation_results.json
 ```
 
-The committed artifact was verified byte-identical (except timestamp) to a fresh run on the current codebase. Full methodology: [docs/SYNTHETIC_VALIDATION.md](docs/SYNTHETIC_VALIDATION.md).
+Full methodology: [docs/SYNTHETIC_VALIDATION.md](docs/SYNTHETIC_VALIDATION.md).
 
 A separate scale benchmark (`backend/scripts/benchmark_scale.py`, results in `docs/benchmark_result.json`) ingested **110,000 synthetic rows through the full ingestion pipeline in ~103 s (~1,066 rows/s)**, quality grade ACCEPTABLE — demonstrating the pipeline handles realistic dataset sizes.
 
@@ -298,7 +298,7 @@ OPEN → UNDER_REVIEW → FIELD_VERIFICATION
    Substantiated          Not Substantiated
         ↓                      ↓
    RESOLVED ─→ ESCALATED      CLOSED
-        └────────┬─────────────┘
+        └───────────┬──────────┘
         (supervisor reopen → UNDER_REVIEW)
 ```
 
@@ -330,27 +330,27 @@ The pair then demonstrates the full human loop: a case opened from the flags is 
 ## 14. Architecture
 
 ```text
-┌────────────────────────────────────────────────────────────┐
-│ Frontend  React 18 + TypeScript (strict) + Tailwind CSS    │
-│           Leaflet map · Recharts · Vite build              │
-└──────────────────────────┬─────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│ Frontend  React 18 + TypeScript (strict) + Tailwind CSS     │
+│           Leaflet map · Recharts · Vite build               │
+└──────────────────────────┬──────────────────────────────────┘
                            │  REST (/api), VITE_API_URL
-┌──────────────────────────▼─────────────────────────────────┐
-│ FastAPI  — thin routers, {data, meta} envelope             │
-│   health · auth · datasets · projects/dashboard · cases    │
-│   reports · stakeholders · validation                      │
-├────────────────────────────────────────────────────────────┤
-│ Services                                                   │
-│   ingestion (parsers/normalizers/quality gate)             │
+┌──────────────────────────▼──────────────────────────────────┐
+│ FastAPI  — thin routers, {data, meta} envelope              │
+│   health · auth · datasets · projects/dashboard · cases     │
+│   reports · stakeholders · validation                       │
+├─────────────────────────────────────────────────────────────┤
+│ Services                                                    │
+│   ingestion (parsers/normalizers/quality gate)              │
 │   detection:  RULES ── ML (Isolation Forest) ── NLP (TF-IDF)│
-│               evidence fusion → priorities                 │
-│   cases (state machine + hash-linked audit chain)          │
-│   reports (PDF)   validation (CAG + synthetic benchmark)   │
-├────────────────────────────────────────────────────────────┤
-│ SQLAlchemy 2 models ── Alembic migrations                  │
-└──────────────────────────┬─────────────────────────────────┘
-                           │
-              SQLite (demo default) / PostgreSQL
+│               evidence fusion → priorities                  │
+│   cases (state machine + hash-linked audit chain)           │
+│   reports (PDF)   validation (CAG + synthetic benchmark)    │
+├─────────────────────────────────────────────────────────────┤
+│ SQLAlchemy 2 models ── Alembic migrations                   │
+└───────────────────────────┬─────────────────────────────────┘
+                            │
+               SQLite (demo default) / PostgreSQL
 ```
 
 Backend layering: `api/` (thin routers) → `services/` (business logic) → `models/` (SQLAlchemy) → `db/`. Detection modules are independently testable; the health-route module is kept free of database imports by contract test.
@@ -504,11 +504,9 @@ Coverage highlights: CAG validation (25 tests — provenance, honest results, la
 - CORS is environment-configured (locked to known origins locally; the public demo currently allows all origins to support the hosted frontend — acceptable for a public synthetic-data demo, not for real data).
 
 ### Production considerations (not implemented — roadmap)
-Role-based access control with government identity (SSO), encryption at rest, government-hosted infrastructure and data residency, secrets management, formal security assessment, and integration with departmental audit controls.
+Role-based access control (RBAC) with government identity (SSO), encryption at rest, government-hosted infrastructure and data residency, secrets management, formal security assessment, and integration with departmental audit controls.
 
 ## 23. Limitations
-
-Stated plainly:
 
 - **Public work-level data availability**: per-work financial, progress, geographic and agency fields are not available from the observed public MPLADS/e-SAKSHI exports; the full detection pipeline is exercised on controlled synthetic data until authorized feeds exist.
 - **No labeled production fraud dataset**: model quality is measured by synthetic injection, not against real-world outcomes; the reported metrics are not production accuracy.
