@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { ColdStartGate } from './components/ui/ColdStartGate'
 import Shell from './components/layout/Shell'
 import CommandCenter from './pages/CommandCenter'
 import InvestigationQueue from './pages/InvestigationQueue'
@@ -30,5 +31,9 @@ const router = createBrowserRouter([
 ])
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return (
+    <ColdStartGate>
+      <RouterProvider router={router} />
+    </ColdStartGate>
+  )
 }

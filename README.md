@@ -452,6 +452,7 @@ The demo runs on free tiers, and honesty about that is part of the design:
 - **Render free tier sleeps the backend** after idle periods; the first request can take an estimated 30–60 s to wake it. (No uptime guarantee is offered or implied.)
 - `GET /api/v1/health` — instant liveness, no database touch. `GET /api/v1/health/ready` — readiness: database reachable + demo dataset present; never runs detection.
 - **Frontend retry layer**: idempotent GET requests retry with bounded exponential backoff (1/2/4/8/8 s, ~23 s window) on network errors and 502/503/504 only; mutations never auto-retry.
+- **Full-screen cold-start screen**: on load, the app explains the free-tier wake-up to viewers — *"First start takes about a minute… spins the service down when idle"* — with a real elapsed timer (no fake progress bar), and clears itself once readiness returns.
 - **Waking-backend gate**: data pages show *"TRINETRA backend is starting. Retrying connection…"* and auto-recover when readiness returns — the wake never looks like a crash.
 - **Pre-warm and check tooling** (stdlib-only):
 

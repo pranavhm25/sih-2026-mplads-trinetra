@@ -80,8 +80,17 @@ click through them once before the audience arrives.
 
 ## 6. What to do if the backend is sleeping (Render free tier)
 
-The UI will show **"TRINETRA backend is starting. Retrying connection…"** —
-this is expected behavior, not a crash. The frontend retries GET requests
+On first load the app shows a **full-screen cold-start screen** instead of a
+silent or half-loaded page: *"First start takes about a minute — TRINETRA's
+backend runs on Render's free tier, which spins the service down when idle.
+It is waking up now."* It carries a real elapsed timer (no fake progress
+bar) and clears by itself the moment `/api/v1/health/ready` turns ready —
+typically 30–60 s after a cold start. A warm backend clears it in under a
+second (it doubles as a brief brand splash).
+
+If the backend drops **mid-session**, data pages fall back to the inline
+gate: **"TRINETRA backend is starting. Retrying connection…"** — also
+expected behavior, not a crash. The frontend retries GET requests
 with exponential backoff (~23 s window) and the page gate polls readiness
 (~90 s window).
 

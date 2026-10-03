@@ -70,13 +70,57 @@ describe('SystemStatus (backend health screen)', () => {
 })
 
 describe('App smoke (foundation §15)', () => {
-  it('renders the shell with primary navigation', async () => {
-    mockFetchOnce({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' })
+  it('renders the shell behind the cold-start gate once the backend is ready', async () => {
+    const fetchMock = vi.fn((input: RequestInfo | URL) => {
+      const url = String(input)
+      if (url.includes('/health/ready')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: () => Promise.resolve({ status: 'ok', ready: true, checks: { database: 'ok' } }),
+        })
+      }
+      if (url.includes('/dashboard/summary')) {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          json: () =>
+            Promise.resolve({
+              data: {
+                total_works: 76,
+                total_value: 1000,
+                high_priority_count: 5,
+                critical_count: 17,
+                delayed_count: 3,
+                duplicate_candidate_count: 1,
+                case_open_count: 0,
+                risk_distribution: { CRITICAL: 17, HIGH: 5, MEDIUM: 26, LOW: 3 },
+                signal_distribution: { DELAY: 3 },
+                quality_exception_count: 0,
+                districts: [],
+                queue_preview: [],
+                map_points: [],
+              },
+              meta: { dataset_version: 'demo-01', is_synthetic: true },
+            }),
+        })
+      }
+      return Promise.resolve({
+        ok: true,
+        status: 200,
+        json: () => Promise.resolve({ status: 'ok', service: 'trinetra-api', legacy_service: 'drishti-api' }),
+      })
+    })
+    vi.stubGlobal('fetch', fetchMock)
     const { default: App } = await import('../App')
-    // jsdom lacks URLSearchParams routing issues here; RouterProvider handles '/'
     const { container } = render(<App />)
+    // The cold-start gate clears (warm backend) and the shell renders.
+    await waitFor(() => expect(screen.getByText('TRINETRA')).toBeInTheDocument())
+    await waitFor(() =>
+      expect(screen.getByRole('heading', { name: 'Command Center' })).toBeInTheDocument(),
+    )
     expect(container).toBeTruthy()
-  })
+  }, 20_000) // full App import + cold-start gate + dashboard load; suite is load-sensitive
 })
 
 describe('GET retry layer (cold-start resilience)', () => {
